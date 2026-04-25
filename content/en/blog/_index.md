@@ -1,4 +1,3 @@
 ---
-title: "Articles"
-description: "Thoughts on history and linguistics"
+title: "Blog"
 ---
