@@ -13,3 +13,16 @@ p, li, span, body {
 .post-content, .blog-post, code, pre, .chat-box {
     font-family: "Courier New", Courier, monospace;
 }
+
+/* Ajustare banda titlu (Header) */
+.pv4, .pv5, .pv6 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+}
+
+/* Daca titlul este intr-un header specific Ananke */
+header.header-main {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
