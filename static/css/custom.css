@@ -40,3 +40,20 @@ nav.pv3 {
     padding-bottom: 0.1rem !important;
 }
 
+/* Eliminarea oricărei margini care ține banda lată */
+nav, .fixed-nav-scrolling {
+    min-height: 0 !important;
+}
+
+/* Forțare text meniu să nu ocupe spațiu extra pe verticală */
+nav a, nav span {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    line-height: 1 !important; /* lipește cutia de text de litere */
+}
+
+/* Reducere la zero a spațiului div-ului care conține meniul */
+.flex-l.items-center {
+    height: auto !important;
+}
+
