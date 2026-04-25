@@ -1,0 +1,25 @@
+baseURL = "https://serban-george-paul-drugas.github.io"
+title = "Serban George Paul Drugas"
+languageCode = "en"
+defaultContentLanguage = "ro"
+defaultContentLanguageInSubdir = true
+
+[languages]
+  [languages.ro]
+    title = "Serban George Paul Drugas"
+    weight = 1
+    languageName = "Română"
+    contentDir = "content/ro"
+  [languages.en]
+    title = "Serban George Paul Drugas"
+    weight = 2
+    languageName = "English"
+    contentDir = "content/en"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML", "JSON"]
+  section = ["HTML", "RSS", "JSON"]
