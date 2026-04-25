@@ -23,6 +23,18 @@ defaultContentLanguageInSubdir = true
       name = "Despre"
       url = "/serban-george-paul-drugas/ro/despre/"
       weight = 20
+    [[languages.ro.menu.main]]
+      name = "Portfolio"
+      url = "/serban-george-paul-drugas/ro/portfolio/"
+      weight = 30
+    [[languages.ro.menu.main]]
+      name = "Shop"
+      url = "/serban-george-paul-drugas/ro/shop/"
+      weight = 40
+    [[languages.ro.menu.main]]
+      name = "Admin"
+      url = "/serban-george-paul-drugas/ro/admin/"
+      weight = 50
 
   [languages.en]
     title = "Serban George Paul Drugas"
@@ -37,6 +49,19 @@ defaultContentLanguageInSubdir = true
       name = "About"
       url = "/serban-george-paul-drugas/en/about/"
       weight = 20
+   [[languages.en.menu.main]]
+      name = "Portfolio"
+      url = "/serban-george-paul-drugas/ro/portfolio/"
+      weight = 30
+    [[languages.en.menu.main]]
+      name = "Shop"
+      url = "/serban-george-paul-drugas/ro/shop/"
+      weight = 40
+    [[languages.en.menu.main]]
+      name = "Admin"
+      url = "/serban-george-paul-drugas/ro/admin/"
+      weight = 50
+
 
 [markup.goldmark.renderer]
   unsafe = true
