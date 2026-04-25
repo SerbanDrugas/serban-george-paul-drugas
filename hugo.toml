@@ -6,6 +6,7 @@ defaultContentLanguage = "ro"
 defaultContentLanguageInSubdir = true
 
 [params]
+  custom_css = ["css/custom.css"]
   featured_image = "https://unsplash.com"
   description = "Blogul meu despre istorie, lingvistică şi spiritualitate ortodoxă"
 

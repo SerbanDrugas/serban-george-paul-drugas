@@ -1,0 +1,15 @@
+/* Fonturi principale */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", serif;
+    font-weight: bold;
+}
+
+/* Texte de paragraf si continut general */
+p, li, span, body {
+    font-family: "Book Antiqua", Palatino, "Palatino Linotype", serif;
+}
+
+/* Sectiunea de blog, postari si elemente de tip chat */
+.post-content, .blog-post, code, pre, .chat-box {
+    font-family: "Courier New", Courier, monospace;
+}
