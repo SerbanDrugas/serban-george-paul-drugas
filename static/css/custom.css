@@ -12,7 +12,7 @@ code, pre { font-family: "Courier New", monospace; }
 
 /* Reducem toate spatiile (padding) de pe orice element din interiorul header-ului */
 header div, header nav + div, .pv4, .pv5, .pv6, .pa3-l, .pa4-l, .pa5-l {
-    padding-top: 0.2rem !important;
+    padding-top: 0.1rem !important;
     padding-bottom: 0.2rem !important;
 }
 
