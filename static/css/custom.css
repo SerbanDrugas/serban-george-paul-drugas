@@ -59,3 +59,23 @@ header .bg-black-60 {
     padding-bottom: 1rem !important;
 }
 
+
+/* Eliminare inaltime fortata (Vertical Height) */
+.vh-100, .vh-75, .vh-50 {
+    min-height: 0 !important;
+    height: auto !important;
+}
+
+/* Reducere drastica padding in headerul principal */
+header.cover div.content-box, 
+header.cover div.table-header {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+/* Ajustare spatiu pentru titlul din header */
+.header-main div div {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
