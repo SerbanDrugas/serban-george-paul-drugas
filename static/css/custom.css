@@ -19,7 +19,7 @@ header div, header nav + div, .pv4, .pv5, .pv6, .pa3-l, .pa4-l, .pa5-l {
 /* Eliminam marginile automate ale titlurilor din antet */
 header h1, header h2 {
     margin: 0 !important;
-    line-height: 1.2 !important;
+    line-height: 1 !important;
 }
 
 /* Îngustare bandă meniu de sus (Navigație) */
