@@ -1,81 +1,23 @@
-/* Fonturi principale */
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Bookman Old Style", serif;
-    font-weight: bold;
-}
+/* Fonturi */
+h1, h2, h3, h4, h5, h6 { font-family: "Bookman Old Style", serif; font-weight: bold; }
+p, li, span, body { font-family: "Book Antiqua", serif; }
+code, pre { font-family: "Courier New", monospace; }
 
-/* Texte de paragraf si continut general */
-p, li, span, body {
-    font-family: "Book Antiqua", Palatino, "Palatino Linotype", serif;
-}
-
-/* Sectiunea de blog, postari si elemente de tip chat */
-.post-content, .blog-post, code, pre, .chat-box {
-    font-family: "Courier New", Courier, monospace;
-}
-
-/* Ajustare banda titlu (Header) */
-.pv4, .pv5, .pv6 {
-    padding-top: 1.5rem !important;
-    padding-bottom: 1.5rem !important;
-}
-
-/* Daca titlul este intr-un header specific Ananke */
-header.header-main {
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
-}
-
-
-/* Ajustare specifica pentru tema Ananke */
-header nav + div {
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
-}
-
-.pa3-l, .pa4-l, .pa5-l {
-    padding: 1rem !important;
-}
-
-/* Reducere spatiu titlu principal */
-.f1, .f2-l {
-    margin-top: 0.5rem !important;
-    margin-bottom: 0.5rem !important;
-}
-
-
-/* Resetare agresiva inaltime header */
-.cover {
-    min-height: auto !important;
-}
-
-header .bg-black-60 {
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
-}
-
-.tc-l {
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
-}
-
-
-/* Eliminare inaltime fortata (Vertical Height) */
-.vh-100, .vh-75, .vh-50 {
+/* SOLUTIA PENTRU ANTET (HEADER) */
+/* Ananke pune inaltime pe "article" sau "header" cu clasa "cover" */
+.cover, .vh-100, .vh-75, .vh-50 {
     min-height: 0 !important;
     height: auto !important;
 }
 
-/* Reducere drastica padding in headerul principal */
-header.cover div.content-box, 
-header.cover div.table-header {
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
+/* Reducem toate spatiile (padding) de pe orice element din interiorul header-ului */
+header div, header nav + div, .pv4, .pv5, .pv6, .pa3-l, .pa4-l, .pa5-l {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
 }
 
-/* Ajustare spatiu pentru titlul din header */
-.header-main div div {
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
+/* Eliminam marginile automate ale titlurilor din antet */
+header h1, header h2 {
+    margin: 0 !important;
+    line-height: 1.2 !important;
 }
-
