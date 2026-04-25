@@ -73,3 +73,20 @@ nav a:hover {
     text-decoration: underline;
 }
 
+
+/* Culoarea de fundal tip pergament pentru tot site-ul */
+body, .bg-white, .nested-copy-line-height {
+    background-color: #fdf5e6 !important; /* Old Lace - un pergament foarte placut */
+    color: #2c2c2c !important; /* Un gri spre negru, mai natural decat negrul pur */
+}
+
+/* Ne asiguram ca si zonele de continut raman pe fundalul de pergament */
+article, main, section {
+    background-color: transparent !important;
+}
+
+/* Ajustare pentru paginile de tip lista (Blog) */
+.bg-near-white {
+    background-color: #f5f5dc !important;
+}
+
