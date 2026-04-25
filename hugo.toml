@@ -49,7 +49,7 @@ defaultContentLanguageInSubdir = true
       name = "About"
       url = "/serban-george-paul-drugas/en/about/"
       weight = 20
-   [[languages.en.menu.main]]
+    [[languages.en.menu.main]]
       name = "Portfolio"
       url = "/serban-george-paul-drugas/ro/portfolio/"
       weight = 30
