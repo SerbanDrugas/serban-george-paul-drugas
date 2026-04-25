@@ -5,6 +5,10 @@ languageCode = "en"
 defaultContentLanguage = "ro"
 defaultContentLanguageInSubdir = true
 
+[params]
+  featured_image = "https://unsplash.com"
+  description = "Blogul meu despre istorie, lingvistică şi spiritualitate ortodoxă"
+
 [languages]
   [languages.ro]
     title = "Serban George Paul Drugas"
@@ -24,3 +28,8 @@ defaultContentLanguageInSubdir = true
   home = ["HTML", "RSS", "JSON"]
   page = ["HTML", "JSON"]
   section = ["HTML", "RSS", "JSON"]
+
+[[menu.main]]
+  name = "Blog"
+  url = "blog/"
+  weight = 10
