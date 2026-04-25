@@ -26,3 +26,36 @@ header.header-main {
     padding-bottom: 1rem !important;
 }
 
+
+/* Ajustare specifica pentru tema Ananke */
+header nav + div {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+.pa3-l, .pa4-l, .pa5-l {
+    padding: 1rem !important;
+}
+
+/* Reducere spatiu titlu principal */
+.f1, .f2-l {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+
+/* Resetare agresiva inaltime header */
+.cover {
+    min-height: auto !important;
+}
+
+header .bg-black-60 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+.tc-l {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
