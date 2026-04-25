@@ -10,16 +10,33 @@ defaultContentLanguageInSubdir = true
   description = "Blogul meu despre istorie, lingvistică şi spiritualitate ortodoxă"
 
 [languages]
-  [languages.ro]
-    title = "Serban George Paul Drugas"
-    weight = 1
-    languageName = "Română"
-    contentDir = "content/ro"
-  [languages.en]
-    title = "Serban George Paul Drugas"
-    weight = 2
-    languageName = "English"
-    contentDir = "content/en"
+[languages.ro]
+  title = "Serban George Paul Drugas"
+  weight = 1
+  languageName = "Română"
+  contentDir = "content/ro"
+  [[languages.ro.menu.main]]
+    name = "Blog"
+    url = "blog/"
+    weight = 10
+  [[languages.ro.menu.main]]
+    name = "Despre"
+    url = "despre/"
+    weight = 20
+
+[languages.en]
+  title = "Serban George Paul Drugas"
+  weight = 2
+  languageName = "English"
+  contentDir = "content/en"
+  [[languages.en.menu.main]]
+    name = "Blog"
+    url = "blog/"
+    weight = 10
+  [[languages.en.menu.main]]
+    name = "About"
+    url = "about/"
+    weight = 20
 
 [markup.goldmark.renderer]
   unsafe = true
@@ -29,18 +46,3 @@ defaultContentLanguageInSubdir = true
   page = ["HTML", "JSON"]
   section = ["HTML", "RSS", "JSON"]
 
-[[menu.main]]
-  name = "Blog"
-  url = "blog/"
-  weight = 10
-
-# Adaugă astea la finalul fișierului
-[[menu.main]]
-  name = "Despre"
-  url = "despre/"
-  weight = 20
-
-[[menu.main]]
-  name = "About"
-  url = "about/"
-  weight = 20
