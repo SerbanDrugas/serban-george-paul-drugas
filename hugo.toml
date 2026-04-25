@@ -17,11 +17,11 @@ defaultContentLanguageInSubdir = true
   contentDir = "content/ro"
   [[languages.ro.menu.main]]
     name = "Blog"
-    url = "blog/"
+    url = "/blog/"
     weight = 10
   [[languages.ro.menu.main]]
     name = "Despre"
-    url = "despre/"
+    url = "/despre/"
     weight = 20
 
 [languages.en]
@@ -31,11 +31,11 @@ defaultContentLanguageInSubdir = true
   contentDir = "content/en"
   [[languages.en.menu.main]]
     name = "Blog"
-    url = "blog/"
+    url = "/blog/"
     weight = 10
   [[languages.en.menu.main]]
     name = "About"
-    url = "about/"
+    url = "/about/"
     weight = 20
 
 [markup.goldmark.renderer]
