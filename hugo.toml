@@ -1,5 +1,6 @@
 baseURL = "https://serban-george-paul-drugas.github.io"
 title = "Serban George Paul Drugas"
+theme = "ananke"
 languageCode = "en"
 defaultContentLanguage = "ro"
 defaultContentLanguageInSubdir = true
