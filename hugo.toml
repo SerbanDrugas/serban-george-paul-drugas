@@ -10,61 +10,6 @@ defaultContentLanguageInSubdir = true
   description = "Blogul meu despre istorie, lingvistică şi spiritualitate ortodoxă"
 
 [languages]
-[languages.ro]
-  title = "Serban George Paul Drugas"
-  weight = 1
-  languageName = "Română"
-  contentDir = "content/ro"
-  [[languages.ro.menu.main]]
-    name = "Blog"
-    url = "blog"
-    weight = 10
-  [[languages.ro.menu.main]]
-    name = "Despre"
-    url = "/
-despre"
-    weight = 20
-
-[languages.en]
-  title = "Serban George Paul Drugas"
-  weight = 2
-  languageName = "English"
-  contentDir = "content/en"
-  [[languages.en.menu.main]]
-    name = "Blog"
-    url = "blog"
-    weight = 10
-  [[languages.en.menu.main]]
-    name = "About"
-    url = "about"
-    weight = 20
-
-[markup.goldmark.renderer]
-  unsafe = true
-
-[outputs]
-  home = ["HTML", "RSS", "JSON"]
-  page = ["HTML", "JSON"]
-  section = ["HTML", "RSS", "JSON"]
-
-
-Mesajul despre Node.js 20 este doar un avertisment (warning) privind viitorul, dar eroarea reală care a oprit procesul (Exit code 1) se află mai sus în acea consolă neagră. Hugo s-a oprit probabil din cauza unei greșeli de scriere în hugo.toml.
-Hai să reparăm fișierul de configurare și să actualizăm și robotul (workflow) pentru a scăpa de avertismente.
-1. Corectarea „chirurgicală” a hugo.toml
-Deschide hugo.toml în Notepad. Problema cea mai probabilă este lipsa ghilimelelor sau un rând greșit la meniuri. Copiază exact acest conținut (asigură-te că nu rămâne nimic altceva în fișier):
-toml
-baseURL = "https://github.io"
-title = "Serban-George-Paul Drugas"
-theme = "ananke"
-languageCode = "en"
-defaultContentLanguage = "ro"
-defaultContentLanguageInSubdir = true
-
-[params]
-  featured_image = "https://unsplash.com"
-  description = "Blogul meu despre istorie, lingvistică şi spiritualitate ortodoxă"
-
-[languages]
   [languages.ro]
     title = "Serban George Paul Drugas"
     weight = 1
