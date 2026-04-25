@@ -57,3 +57,19 @@ nav a, nav span {
     height: auto !important;
 }
 
+/* Schimbă fundalul pentru toată zona de sus (Navigație + Header) */
+.bg-black, .bg-black-60, .header-main, nav.pv3 {
+    background-color: #4a323c !important; /* Aici poți pune culoarea dorită */
+}
+
+/* Dacă vrei ca textul să rămână alb și lizibil pe noul fundal */
+nav a, nav span, header h1 {
+    color: #ffffff !important;
+}
+
+/* Efect de hover pentru link-urile din meniu (opțional) */
+nav a:hover {
+    color: #0a4c78 !important;
+    text-decoration: underline;
+}
+
