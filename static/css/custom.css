@@ -1,137 +1,54 @@
-/* Fonturi */
+/* 1. FONTURI ȘI STIL TEXT */
 h1, h2, h3, h4, h5, h6 { font-family: "Bookman Old Style", serif; font-weight: bold; }
 p, li, span, body { font-family: "Book Antiqua", serif; }
 code, pre { font-family: "Courier New", monospace; }
 
-/* SOLUTIA PENTRU ANTET (HEADER) */
-/* Ananke pune inaltime pe "article" sau "header" cu clasa "cover" */
-.cover, .vh-100, .vh-75, .vh-50 {
-    min-height: 0 !important;
-    height: auto !important;
-}
-
-/* Reducem toate spatiile (padding) de pe orice element din interiorul header-ului */
+/* 2. ANTET (HEADER) COMPACT */
+.cover, .vh-100, .vh-75, .vh-50 { min-height: 0 !important; height: auto !important; }
 header div, header nav + div, .pv4, .pv5, .pv6, .pa3-l, .pa4-l, .pa5-l {
-    padding-top: 0.1rem !important;
-    padding-bottom: 0.2rem !important;
+    padding-top: 0.1rem !important; padding-bottom: 0.2rem !important;
 }
+header h1, header h2 { margin: 0 !important; line-height: 1 !important; }
+.pa3, .pv3, .pv2 { padding-top: 0.1rem !important; padding-bottom: 0.1rem !important; }
+nav.pv3 { padding-top: 0.2rem !important; padding-bottom: 0.2rem !important; }
+.link-transition { padding-top: 0.1rem !important; padding-bottom: 0.1rem !important; }
+nav, .fixed-nav-scrolling { min-height: 0 !important; }
+nav a, nav span { margin-top: 0 !important; margin-bottom: 0 !important; line-height: 1 !important; }
+.flex-l.items-center { height: auto !important; }
+.bg-black, .bg-black-60, .header-main, nav.pv3 { background-color: #4a323c !important; }
+nav a, nav span, header h1 { color: #ffffff !important; }
+nav a:hover { color: #0a4c78 !important; text-decoration: underline; }
 
-/* Eliminam marginile automate ale titlurilor din antet */
-header h1, header h2 {
-    margin: 0 !important;
-    line-height: 1 !important;
-}
-
-/* Îngustare bandă meniu de sus (Navigație) */
-.pa3, .pv3, .pv2 {
-    padding-top: 0.1rem !important;
-    padding-bottom: 0.1rem !important;
-}
-
-/* Ajustare spațiu logo/nume site */
-nav.pv3 {
-    padding-top: 0.2rem !important;
-    padding-bottom: 0.2rem !important;
-}
-
-/* Aliniere elemente meniu pentru a fi compacte */
-.link-transition {
-    padding-top: 0.1rem !important;
-    padding-bottom: 0.1rem !important;
-}
-
-/* Eliminarea oricărei margini care ține banda lată */
-nav, .fixed-nav-scrolling {
-    min-height: 0 !important;
-}
-
-/* Forțare text meniu să nu ocupe spațiu extra pe verticală */
-nav a, nav span {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    line-height: 1 !important; /* lipește cutia de text de litere */
-}
-
-/* Reducere la zero a spațiului div-ului care conține meniul */
-.flex-l.items-center {
-    height: auto !important;
-}
-
-/* Schimbă fundalul pentru toată zona de sus (Navigație + Header) */
-.bg-black, .bg-black-60, .header-main, nav.pv3 {
-    background-color: #4a323c !important; /* Aici poți pune culoarea dorită */
-}
-
-/* Dacă vrei ca textul să rămână alb și lizibil pe noul fundal */
-nav a, nav span, header h1 {
-    color: #ffffff !important;
-}
-
-/* Efect de hover pentru link-urile din meniu (opțional) */
-nav a:hover {
-    color: #0a4c78 !important;
-    text-decoration: underline;
-}
-
-
-/* Culoarea de fundal tip pergament pentru tot site-ul */
+/* 3. FUNDAL PERGAMENT ȘI TEXTURĂ */
 body, .bg-white, .nested-copy-line-height {
-    background-color: #fdf5e6 !important; /* Old Lace - un pergament foarte placut */
-    color: #2c2c2c !important; /* Un gri spre negru, mai natural decat negrul pur */
-}
-
-/* Ne asiguram ca si zonele de continut raman pe fundalul de pergament */
-article, main, section {
-    background-color: transparent !important;
-}
-
-/* Ajustare pentru paginile de tip lista (Blog) */
-.bg-near-white {
-    background-color: #f5f5dc !important;
-}
-
-/* 1. Textura (Link corect către imagine) */
-body {
     background-color: #fdf5e6 !important;
+    color: #2c2c2c !important;
     background-image: url("https://www.transparenttextures.com/patterns/small-crackle-bright.png") !important;
     background-attachment: fixed;
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
+}
+article, main, section { background-color: transparent !important; }
+.bg-near-white { background-color: #f5f5dc !important; }
+
+/* 4. REGLAJE TITLU PAGINĂ (Micșorare și apropiere) */
+.f1, .page-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
 }
 
-/* 2. Forțăm lățimea maximă și eliminăm limitările temei Ananke */
-.mw7, .measure, .measure-wide, .measure-narrow {
-    max-width: 100% !important;
-    width: 100% !important;
-}
+/* 5. LĂȚIME MAXIMĂ ȘI ELIMINARE CASETE NEGRE */
+.mw7, .measure, .measure-wide, .measure-narrow { max-width: 100% !important; width: 100% !important; }
+main article, .nested-copy-line-height { max-width: 100% !important; padding: 0 !important; }
+code, pre { background: transparent !important; color: inherit !important; padding: 0 !important; border: none !important; }
 
-main article, .nested-copy-line-height {
-    max-width: 100% !important;
-    padding: 0 !important;
-}
-
-/* 3. Eliminăm casetele negre și stilizarea de tip "cod" */
-code, pre, .bg-black {
-    background: transparent !important;
-    color: inherit !important;
-    padding: 0 !important;
-    border: none !important;
-    font-family: inherit !important;
-}
-
-/* 4. Ascundem secțiunea de postări recente (Despre mine/Read more) de pe Home */
-.w-100.ph4-l.mw9.center {
-    display: none !important;
-}
-
-/* 5. Containerul principal și sistemul de coloane */
+/* 6. CONTAINER PRINCIPAL (ACASA) */
 .homepage-container {
     width: 100% !important;
-    min-height: 100vh;
-    padding: 5mm;
     display: flex;
     flex-direction: column;
     gap: 5mm;
+    padding: 5mm;
     box-sizing: border-box;
 }
 
@@ -147,7 +64,6 @@ code, pre, .bg-black {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 5mm;
-    flex-grow: 1;
 }
 
 .column {
@@ -155,45 +71,29 @@ code, pre, .bg-black {
     padding: 20px;
     border: 1px solid #e0d8c3;
     box-sizing: border-box;
-    min-height: 80hv;
+    min-height: 100vh !important; /* Coloane lungi cât ecranul */
 }
 
-/* Ajustare pentru ecrane mici (telefoane) */
-@media screen and (max-width: 800px) {
-    .columns-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Micșorăm titlul "Prezentare Generală" la jumătate și îl apropiem de casetă */
-.f1, .page-title {
-    font-size: 1.5rem !important; /* Aproximativ 1/2 din mărimea originală */
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-/* Eliminăm spațiul alb (padding) pe care tema îl pune sub titlu */
-.pv4, .pv5 {
-    padding-top: 0.5rem !important;
-    padding-bottom: 0.5rem !important;
-}
-
-/* Eliminăm spațiul imens de sub secțiunea Despre mine / Read more */
+/* 7. ZONA DE JOS (DESPRE MINE) ȘI FOOTER COMPACT */
 .w-100.ph4-l.mw9.center {
+    display: block !important;
+    margin-top: 0 !important;
     margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+    padding-top: 5mm !important;
+    padding-bottom: 5mm !important;
 }
 
-/* Reducem spațiul de deasupra footer-ului */
 footer {
-    margin-top: 5mm !important; /* Doar 5mm distanță, ca între coloane */
+    margin-top: 0 !important;
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
+    background-color: #4a323c !important;
 }
 
-/* Eliminăm eventuale spații goale din interiorul zonei de conținut de jos */
-.bg-near-white.pv4 {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-}
+/* Ajustări finale spații albe reziduale */
+.pv4, .pv5 { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
 
+/* REZOLVARE MOBIL */
+@media screen and (max-width: 800px) {
+    .columns-container { grid-template-columns: 1fr; }
+}
