@@ -14,13 +14,14 @@ defaultContentLanguageInSubdir = true
 
 [[menu.footer]]
   name = "facebook"
+  label = "Facebook"
   url = "https://www.facebook.com/serban.drugas" 
 [[menu.footer]]
-  name = "link"
+  name = "twitter"
   label = "Wix"
   url = "https://serbangpdrugas.wixsite.com/burebistas"
 [[menu.footer]]
-  name = "link"
+  name = "github"
   label = "Webnode"
   url = "https://serban-george-paul-drugas.webnode.ro/"
 

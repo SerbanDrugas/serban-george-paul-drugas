@@ -75,26 +75,50 @@ code, pre { background: transparent !important; color: inherit !important; paddi
 }
 
 /* 7. ZONA DE JOS (DESPRE MINE) ȘI FOOTER COMPACT */
+/* Readucem culoarea de pergament în zona de jos */
 .bg-near-white {
-    background-color: transparent !important;
+    background-color: #fdf5e6 !important; 
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-    margin-bottom: -3rem !important; /* Trage footer-ul în sus prin forță */
+}
+
+/* Eliminăm golul dintre secțiuni și footer */
+main article, .cf, .pv4 {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    min-height: 0 !important;
 }
 
 .w-100.ph4-l.mw9.center {
     display: block !important;
-    margin-top: -2rem !important;
-    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 10px !important;
 }
 
+/* REGLAJE FINALE FOOTER */
 footer {
     background-color: #4a323c !important;
     color: #ffffff !important;
-    padding: 1rem 0 !important;
+    padding: 2rem 0 !important;
+    text-align: center;
     margin-top: 0 !important;
-    position: relative;
-    z-index: 999; /* Se asigură că stă deasupra fundalului */
+    width: 100% !important;
+}
+
+/* Forțăm afișarea meniului de footer (linkurile sociale) */
+footer nav {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 20px !important;
+    margin-bottom: 15px !important;
+}
+
+footer nav a {
+    color: #fdf5e6 !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    font-size: 1.1rem !important;
 }
 
 /* REZOLVARE MOBIL */
