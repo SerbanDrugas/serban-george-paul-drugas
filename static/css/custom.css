@@ -90,7 +90,7 @@ article, main, section {
     background-color: #f5f5dc !important;
 }
 
-/* Textură hârtie pe tot fundalul */
+/* 1. Reparăm Textura (am ales un model de hărtie discret) */
 body {
     background-color: #fdf5e6 !important;
     background-image: url("https://transparenttextures.com") !important;
@@ -98,36 +98,46 @@ body {
     padding: 0;
 }
 
-/* Containerul principal pentru "Acasa" */
-.homepage-container {
-    min-height: 120vh; /* Înălțime fixă generosă (120% din ecran) */
-    padding: 5mm;      /* Marginea cerută de 5mm */
-    display: flex;
-    flex-direction: column;
-    gap: 5mm;          /* Spațiu între caseta de sus și coloane */
+/* 2. Eliminăm caseta neagră forțată de temă pe conținut */
+.bg-black, .black-60 {
+    background-color: transparent !important;
 }
 
-/* Caseta de sus (Verde deschis) */
+/* 3. Containerul principal */
+.homepage-container {
+    min-height: 120vh;
+    padding: 5mm;
+    display: flex;
+    flex-direction: column;
+    gap: 5mm;
+    box-sizing: border-box; /* Previne lărgirea peste ecran */
+}
+
+/* 4. Caseta de sus (Verde deschis) */
 .top-box {
-    background-color: #f0fff0 !important; /* Honeydew - verde extrem de deschis */
+    background-color: #f0fff0 !important;
     border: 1px solid #d4e3d4;
     padding: 20px;
     width: 100%;
-    min-height: 200px; /* Înălțime similară cu ce ai acum */
-    box-sizing: border-box;
 }
 
-/* Sistemul de 3 coloane */
+/* 5. Sistemul de 3 coloane */
 .columns-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 coloane egale */
+    grid-template-columns: repeat(3, 1fr);
     gap: 5mm;
-    flex-grow: 1;
 }
 
 .column {
-    background-color: rgba(255, 255, 255, 0.3); /* Ușor transparentă să se vadă textura */
+    background-color: rgba(255, 255, 255, 0.5); /* Alb translucid peste textură */
     padding: 15px;
     border: 1px solid #e0d8c3;
+}
+
+/* Ajustare mobil: pe telefon să fie o singură coloană */
+@media screen and (max-width: 600px) {
+    .columns-container {
+        grid-template-columns: 1fr;
+    }
 }
 

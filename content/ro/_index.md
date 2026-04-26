@@ -1,15 +1,12 @@
 ---
-title: "PREZENTARE GENERALĂ"
-featured_image: ""
+title: "Prezentare Generală"
 ---
-<div class="homepage-container">
 
-    <!-- Caseta de sus cu textul de prezentare -->
+<div class="homepage-container">
     <div class="top-box">
-        <p>Aici vei pune textul care va înlocui "Bine ați venit!". Această secțiune este prezentarea generală a blogului despre istorie, lingvistică și spiritualitate.</p>
+        <p>Aici vei pune textul de prezentare despre istorie, lingvistică și spiritualitate.</p>
     </div>
 
-    <!-- Cele 3 coloane de jos -->
     <div class="columns-container">
         <div class="column">
             <h3>Istorie</h3>
@@ -24,5 +21,4 @@ featured_image: ""
             <p>Conținut coloana 3...</p>
         </div>
     </div>
-
 </div>

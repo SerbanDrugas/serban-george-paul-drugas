@@ -64,5 +64,7 @@ defaultContentLanguageInSubdir = true
       weight = 50
 
 
-[markup.goldmark.renderer]
-  unsafe = true
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
