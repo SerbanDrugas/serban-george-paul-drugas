@@ -18,23 +18,23 @@ defaultContentLanguageInSubdir = true
     contentDir = "content/ro"
     [[languages.ro.menu.main]]
       name = "Blog"
-      url = "blog/"
+      url = "/ro/blog/"
       weight = 10
     [[languages.ro.menu.main]]
       name = "Despre"
-      url = "despre/"
+      url = "/ro/despre/"
       weight = 20
     [[languages.ro.menu.main]]
       name = "Portfolio"
-      url = "portfolio/"
+      url = "/ro/portfolio/"
       weight = 30
     [[languages.ro.menu.main]]
       name = "Shop"
-      url = "shop/"
+      url = "/ro/shop/"
       weight = 40
     [[languages.ro.menu.main]]
       name = "Admin"
-      url = "admin/"
+      url = "/ro/admin/"
       weight = 50
 
   [languages.en]
@@ -44,23 +44,23 @@ defaultContentLanguageInSubdir = true
     contentDir = "content/en"
     [[languages.en.menu.main]]
       name = "Blog"
-      url = "blog/"
+      url = "/en/blog/"
       weight = 10
     [[languages.en.menu.main]]
       name = "About"
-      url = "about/"
+      url = "/en/about/"
       weight = 20
     [[languages.en.menu.main]]
       name = "Portfolio"
-      url = "../ro/portfolio/"
+      url = "/ro/portfolio/"
       weight = 30
     [[languages.en.menu.main]]
       name = "Shop"
-      url = "../ro/shop/"
+      url = "/ro/shop/"
       weight = 40
     [[languages.en.menu.main]]
       name = "Admin"
-      url = "../ro/admin/"
+      url = "/ro/admin/"
       weight = 50
 
 
