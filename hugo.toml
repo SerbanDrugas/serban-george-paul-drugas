@@ -11,6 +11,17 @@ defaultContentLanguageInSubdir = true
   description = "Blogul meu despre istorie, lingvistică şi spiritualitate ortodoxă"
   footer_social_enable = true
   copy_right = "© 2024 Serban-George-Paul Drugas. Toate drepturile rezervate."
+  [[params.social]]
+    name = "facebook"
+    url = "https://www.facebook.com/serban.drugas" 
+  [[params.social]]
+    name = "link"
+    label = "Wix"
+    url = "https://serbangpdrugas.wixsite.com/burebistas"
+  [[params.social]]
+    name = "link"
+    label = "Webnode"
+    url = "https://serban-george-paul-drugas.webnode.ro/"
 
 [languages]
   [languages.ro]

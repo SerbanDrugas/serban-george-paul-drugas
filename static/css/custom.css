@@ -75,6 +75,11 @@ code, pre { background: transparent !important; color: inherit !important; paddi
 }
 
 /* 7. ZONA DE JOS (DESPRE MINE) ȘI FOOTER COMPACT */
+/* Forțăm eliminarea spațiilor dintre secțiuni */
+main, article, section {
+    min-height: 0 !important;
+}
+
 .w-100.ph4-l.mw9.center {
     display: block !important;
     margin-top: 0 !important;
@@ -85,32 +90,58 @@ code, pre { background: transparent !important; color: inherit !important; paddi
 
 /* REGLAJE FINALE FOOTER */
 footer {
-    background-color: #4a323c !important; /* Culoarea visiniu închis ca la antet */
-    color: #ffffff !important;           /* Text alb */
-    padding: 1rem 0 !important;          /* Spatiu sus-jos */
+    background-color: #4a323c !important;
+    color: #ffffff !important;
+    padding: 1.5rem 0 !important; /* Un pic mai generos */
     text-align: center;
+    margin-top: 0 !important; /* Lipit de secțiunea de sus */
 }
 
-footer a {
-    color: #fdf5e6 !important;           /* Link-uri de culoarea pergamentului */
-    text-decoration: none;
-    margin: 0 10px;
+/* Eliminăm spațiile de padding ale containerului care ține footer-ul */
+.pv4, .pv5 { 
+    padding-top: 0 !important; 
+    padding-bottom: 0 !important; 
 }
 
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Ne asigurăm că textul de copyright este lizibil */
 footer small {
     font-size: 0.9rem;
     font-family: "Book Antiqua", serif;
+    display: block;
+    margin-bottom: 10px;
 }
 
-/* Ajustări finale spații albe reziduale */
-.pv4, .pv5 { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+/* Stil pentru link-urile sociale (când le vom activa) */
+.footer-links a {
+    color: #fdf5e6 !important;
+    margin: 0 10px;
+    font-size: 1.2rem;
+}
+
+/* Stil pentru linkurile sociale din footer */
+footer a {
+    color: #fdf5e6 !important;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+footer a:hover {
+    color: #ffffff !important;
+    text-decoration: underline;
+}
+
+/* Dacă tema pune iconițe prea mici, le mărim */
+.social-icon svg {
+    fill: #fdf5e6 !important;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+
 
 /* REZOLVARE MOBIL */
 @media screen and (max-width: 800px) {
     .columns-container { grid-template-columns: 1fr; }
+    .column { min-height: auto !important; } /* Pe mobil nu vrem coloane imense de 100vh */
 }
