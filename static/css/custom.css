@@ -155,7 +155,7 @@ code, pre, .bg-black {
     padding: 20px;
     border: 1px solid #e0d8c3;
     box-sizing: border-box;
-    min-height: 1800px;
+    min-height: 80hv;
 }
 
 /* Ajustare pentru ecrane mici (telefoane) */
@@ -176,5 +176,24 @@ code, pre, .bg-black {
 .pv4, .pv5 {
     padding-top: 0.5rem !important;
     padding-bottom: 0.5rem !important;
+}
+
+/* Eliminăm spațiul imens de sub secțiunea Despre mine / Read more */
+.w-100.ph4-l.mw9.center {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Reducem spațiul de deasupra footer-ului */
+footer {
+    margin-top: 5mm !important; /* Doar 5mm distanță, ca între coloane */
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+/* Eliminăm eventuale spații goale din interiorul zonei de conținut de jos */
+.bg-near-white.pv4 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 
