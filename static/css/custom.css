@@ -90,3 +90,44 @@ article, main, section {
     background-color: #f5f5dc !important;
 }
 
+/* Textură hârtie pe tot fundalul */
+body {
+    background-color: #fdf5e6 !important;
+    background-image: url("https://transparenttextures.com") !important;
+    margin: 0;
+    padding: 0;
+}
+
+/* Containerul principal pentru "Acasa" */
+.homepage-container {
+    min-height: 120vh; /* Înălțime fixă generosă (120% din ecran) */
+    padding: 5mm;      /* Marginea cerută de 5mm */
+    display: flex;
+    flex-direction: column;
+    gap: 5mm;          /* Spațiu între caseta de sus și coloane */
+}
+
+/* Caseta de sus (Verde deschis) */
+.top-box {
+    background-color: #f0fff0 !important; /* Honeydew - verde extrem de deschis */
+    border: 1px solid #d4e3d4;
+    padding: 20px;
+    width: 100%;
+    min-height: 200px; /* Înălțime similară cu ce ai acum */
+    box-sizing: border-box;
+}
+
+/* Sistemul de 3 coloane */
+.columns-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 coloane egale */
+    gap: 5mm;
+    flex-grow: 1;
+}
+
+.column {
+    background-color: rgba(255, 255, 255, 0.3); /* Ușor transparentă să se vadă textura */
+    padding: 15px;
+    border: 1px solid #e0d8c3;
+}
+
