@@ -83,11 +83,28 @@ code, pre { background: transparent !important; color: inherit !important; paddi
     padding-bottom: 5mm !important;
 }
 
+/* REGLAJE FINALE FOOTER */
 footer {
-    margin-top: 0 !important;
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
-    background-color: #4a323c !important;
+    background-color: #4a323c !important; /* Culoarea visiniu închis ca la antet */
+    color: #ffffff !important;           /* Text alb */
+    padding: 1rem 0 !important;          /* Spatiu sus-jos */
+    text-align: center;
+}
+
+footer a {
+    color: #fdf5e6 !important;           /* Link-uri de culoarea pergamentului */
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Ne asigurăm că textul de copyright este lizibil */
+footer small {
+    font-size: 0.9rem;
+    font-family: "Book Antiqua", serif;
 }
 
 /* Ajustări finale spații albe reziduale */

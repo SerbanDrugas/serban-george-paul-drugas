@@ -9,6 +9,8 @@ defaultContentLanguageInSubdir = true
   custom_css = ["css/custom.css"]
   featured_image = "https://unsplash.com"
   description = "Blogul meu despre istorie, lingvistică şi spiritualitate ortodoxă"
+  footer_social_enable = true
+  copy_right = "© 2024 Serban-George-Paul Drugas. Toate drepturile rezervate."
 
 [languages]
   [languages.ro]
