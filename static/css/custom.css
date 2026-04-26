@@ -121,6 +121,38 @@ footer nav a {
     font-size: 1.1rem !important;
 }
 
+/* Anulăm orice spațiu vertical rezidual deasupra footer-ului */
+.pv4, .pv5, .pv6, .pa4, .pa3 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Eliminăm spațiul gol din containerul principal */
+main {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Lipim footer-ul de orice element de deasupra lui */
+footer {
+    margin-top: 0 !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+/* Injectăm manual link-urile în footer dacă tema le ignoră */
+footer::before {
+    content: "Urmărește-mă pe: Facebook | Wix | Webnode";
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #fdf5e6;
+}
+
+/* NOTA: Aceasta e doar pentru text. Pentru linkuri funcționale, 
+cea mai bună metodă este să le scrii direct în pagina Acasă la final. */
+
+
 /* REZOLVARE MOBIL */
 @media screen and (max-width: 800px) {
     .columns-container { grid-template-columns: 1fr; }
