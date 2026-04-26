@@ -90,54 +90,76 @@ article, main, section {
     background-color: #f5f5dc !important;
 }
 
-/* 1. Reparăm Textura (am ales un model de hărtie discret) */
+/* 1. Textura (Link corect către imagine) */
 body {
     background-color: #fdf5e6 !important;
     background-image: url("https://transparenttextures.com") !important;
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
 }
 
-/* 2. Eliminăm caseta neagră forțată de temă pe conținut */
-.bg-black, .black-60 {
-    background-color: transparent !important;
+/* 2. Forțăm lățimea maximă și eliminăm limitările temei Ananke */
+.mw7, .measure, .measure-wide, .measure-narrow {
+    max-width: 100% !important;
+    width: 100% !important;
 }
 
-/* 3. Containerul principal */
+main article, .nested-copy-line-height {
+    max-width: 100% !important;
+    padding: 0 !important;
+}
+
+/* 3. Eliminăm casetele negre și stilizarea de tip "cod" */
+code, pre, .bg-black {
+    background: transparent !important;
+    color: inherit !important;
+    padding: 0 !important;
+    border: none !important;
+    font-family: inherit !important;
+}
+
+/* 4. Ascundem secțiunea de postări recente (Despre mine/Read more) de pe Home */
+.w-100.ph4-l.mw9.center {
+    display: none !important;
+}
+
+/* 5. Containerul principal și sistemul de coloane */
 .homepage-container {
-    min-height: 120vh;
+    width: 100% !important;
+    min-height: 100vh;
     padding: 5mm;
     display: flex;
     flex-direction: column;
     gap: 5mm;
-    box-sizing: border-box; /* Previne lărgirea peste ecran */
+    box-sizing: border-box;
 }
 
-/* 4. Caseta de sus (Verde deschis) */
 .top-box {
     background-color: #f0fff0 !important;
     border: 1px solid #d4e3d4;
     padding: 20px;
     width: 100%;
+    box-sizing: border-box;
 }
 
-/* 5. Sistemul de 3 coloane */
 .columns-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 5mm;
+    flex-grow: 1;
 }
 
 .column {
-    background-color: rgba(255, 255, 255, 0.5); /* Alb translucid peste textură */
-    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 20px;
     border: 1px solid #e0d8c3;
+    box-sizing: border-box;
 }
 
-/* Ajustare mobil: pe telefon să fie o singură coloană */
-@media screen and (max-width: 600px) {
+/* Ajustare pentru ecrane mici (telefoane) */
+@media screen and (max-width: 800px) {
     .columns-container {
         grid-template-columns: 1fr;
     }
 }
-
