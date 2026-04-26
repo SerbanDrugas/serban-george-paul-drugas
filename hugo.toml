@@ -10,15 +10,15 @@ defaultContentLanguageInSubdir = true
   featured_image = "https://unsplash.com"
   description = "Blogul meu despre istorie, lingvistică şi spiritualitate ortodoxă"
   footer_social_enable = true
-  copy_right = "© 2024 Serban-George-Paul Drugas. Toate drepturile rezervate."
-  [[params.social]]
+  copy_right = "© 2026 Serban-George-Paul Drugas. Toate drepturile rezervate."
+  [[menu.footer]]
     name = "facebook"
     url = "https://www.facebook.com/serban.drugas" 
-  [[params.social]]
+  [[menu.footer]]
     name = "link"
     label = "Wix"
     url = "https://serbangpdrugas.wixsite.com/burebistas"
-  [[params.social]]
+  [[menu.footer]]
     name = "link"
     label = "Webnode"
     url = "https://serban-george-paul-drugas.webnode.ro/"
