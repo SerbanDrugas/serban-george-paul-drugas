@@ -158,3 +158,19 @@ cea mai bună metodă este să le scrii direct în pagina Acasă la final. */
     .columns-container { grid-template-columns: 1fr; }
     .column { min-height: auto !important; }
 }
+
+/* Stil pentru introducerea din Blog */
+.blog-intro {
+    font-family: "Book Antiqua", serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: justify;
+    padding: 20px 0;
+    color: #2c2c2c;
+}
+
+/* Ne asigurăm că textul de sub antet în paginile de listă nu e alb pe alb */
+.nested-copy-line-height.lh-copy {
+    text-align: justify;
+}
+
