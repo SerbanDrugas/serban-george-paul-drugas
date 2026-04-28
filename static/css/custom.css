@@ -254,14 +254,17 @@ textarea { height: 100px; resize: none; overflow-y: scroll; white-space: pre-wra
 
 /* BUTON COMENTEAZĂ */
 .btn-reply-small {
-    height: 7mm;
-    width: 12mm;
-    font-size: 0.6rem;
+    height: 8mm;
+    width: 25mm;
+    font-size: 0.75rem;
     background: #4a323c;
     color: white;
     border: none;
     cursor: pointer;
 }
+
+.admin-delete-btn { background: red; color: white; border: none; font-size: 10px; cursor: pointer; float: right; padding: 2px 5px; }
+.reply-intro { color: #888; font-size: 0.85rem; border-bottom: 1px dashed #ccc; margin-bottom: 5px; display: block; }
 
 /* MOBIL */
 @media screen and (max-width: 800px) {
