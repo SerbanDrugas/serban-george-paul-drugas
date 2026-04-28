@@ -174,3 +174,100 @@ cea mai bună metodă este să le scrii direct în pagina Acasă la final. */
     text-align: justify;
 }
 
+/* LAYOUT GENERAL */
+.blog-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    padding: 10px;
+    background-color: #fdf5e6;
+}
+
+/* FORMULAR STÂNGA */
+.blog-form-col {
+    position: sticky;
+    top: 10px;
+    height: fit-content;
+}
+
+#status-message { color: #2c2c2c; font-size: 0.8rem; margin-bottom: 5px; min-height: 1.2rem; }
+.input-group { margin-bottom: 15px; position: relative; }
+
+input, textarea {
+    width: 100%;
+    border: 1px solid #4a323c;
+    background: white;
+    padding: 5px;
+}
+
+textarea { height: 100px; resize: none; overflow-y: scroll; white-space: pre-wrap; }
+
+.btn-toggle button {
+    font-size: 0.7rem;
+    padding: 2px 5px;
+    cursor: pointer;
+}
+
+.btn-send {
+    background: #4a323c;
+    color: white;
+    padding: 5px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+/* COLOANA DREAPTĂ - CALUPURI */
+.comment-block-red {
+    border: 2px solid red;
+    margin-bottom: 5mm;
+    padding: 2mm; /* Spațiul de jur împrejurul chenarului albastru */
+    height: 50mm;
+    overflow-y: scroll;
+    position: relative;
+    background: transparent;
+}
+
+.comment-main-fixed {
+    border: 1px solid blue;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    margin-bottom: 2mm;
+}
+
+.comment-reply {
+    border: 1px solid blue;
+    margin-left: 36mm; /* Indent 3x Comentează */
+    margin-top: 2mm;
+    width: calc(100% - 36mm);
+}
+
+/* CULORI TEXT CONFORM CERINȚELOR */
+.nick-red { color: red; font-weight: bold; }
+.email-admin { color: red; text-decoration: line-through; }
+.email-public, .date-blue { color: darkblue; }
+.title-italic { color: red; font-style: italic; }
+
+.bg-admin { background-color: #f0fff0 !important; } /* Vernil */
+.bg-visitor { background-color: white !important; }
+
+/* BUTON COMENTEAZĂ */
+.btn-reply-small {
+    height: 7mm;
+    width: 12mm;
+    font-size: 0.6rem;
+    background: #4a323c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* MOBIL */
+@media screen and (max-width: 800px) {
+    .blog-container { grid-template-columns: 1fr; }
+    dialog { width: 100vw; height: 100vh; }
+}
+
+
+
