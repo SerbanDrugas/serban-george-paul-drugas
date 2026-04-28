@@ -59,63 +59,48 @@ description: " "
 </dialog>
 
 <script>
+const gUrl = "https://script.google.com/macros/s/AKfycbyus6US7dTTeNXVPtii1PFZcZb2jnlzGvf_I2DoLBjEkgJmfl7b8Y3ArisKEm6A9lriXw/exec"; // PUNE URL-UL AICI
 let priv = {email:null, phone:null};
+function setPrivacy(t, v) { priv[t] = v; document.getElementById('status-message').innerText = ""; }
 
-function setPrivacy(t, v) {
-    priv[t] = v;
-    document.getElementById('status-message').innerText = "";
-    document.getElementById('status-message').style.color = "#2c2c2c";
+// Încărcare automată comentarii
+async function loadComments() {
+const res = await fetch(gUrl);
+const data = await res.json();
+const display = document.getElementById('comments-display');
+display.innerHTML = ""; 
+// Aici vom genera HTML-ul pentru fiecare calup bazat pe data.parent
+// Logica va grupa comentariile "Principal" în calupuri roșii
 }
 
-document.getElementById('main-comment-form').onsubmit = function(e) {
-    e.preventDefault();
-    let em = document.getElementById('email').value;
-    let ph = document.getElementById('phone').value;
-    let msg = document.getElementById('status-message');
-    
-    if (em && !priv.email) {
-        msg.innerText = "Selectează public / doar admin!";
-        msg.style.color = "red";
-        return;
-    }
-    if (ph && !priv.phone) {
-        msg.innerText = "Selectează public / doar admin!";
-        msg.style.color = "red";
-        return;
-    }
-    
-    const googleUrl = "https://script.google.com/macros/s/AKfycbyrlQt43EYRf24TrAFu9CvWY51BrLriOpoAe1BxNOgMff6qUIBAYBYBANCyhSkGs4FocA/exec"; // Pune aici link-ul copiat la pasul anterior
+window.onload = loadComments;
 
-fetch(googleUrl, {
-    method: "POST",
-    mode: "no-cors",
-    body: JSON.stringify({
-        nick: document.getElementById('nick').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        title: document.getElementById('title').value,
-        comment: document.getElementById('comment').value,
-        privEmail: priv.email,
-        privPhone: priv.phone
-    })
-}).then(() => {
-    alert("Comentariul a fost trimis! Va apărea după aprobare.");
-    document.getElementById('main-comment-form').reset();
-    priv = {email:null, phone:null}; // Resetăm și setările de privacy
-    document.getElementById('status-message').innerText = "* Obligatoriu dacă introduci email sau nr. tel.";
-});
-
+document.getElementById('main-comment-form').onsubmit = async function(e) {
+e.preventDefault();
+const nick = document.getElementById('nick').value;
+const em = document.getElementById('email').value;
+const ph = document.getElementById('phone').value;
+if ((em && !priv.email) || (ph && !priv.phone)) {
+document.getElementById('status-message').innerText = "Selectează public / doar admin!";
+document.getElementById('status-message').style.color = "red";
+return;
+}
+await fetch(gUrl, { method: "POST", mode: "no-cors", body: JSON.stringify({
+nick: nick, email: em, phone: ph, title: document.getElementById('title').value,
+comment: document.getElementById('comment').value, privEmail: priv.email, privPhone: priv.phone
+})});
+alert("Trimis!");
+location.reload(); 
 };
 
-function openReply() {
-    const dialog = document.getElementById('reply-popup');
-    const content = document.getElementById('popup-content');
-    
-    // Folosim variabile separate pentru a "păcăli" verificarea Hugo
-    const pTag = "p";
-    const textA = "textarea";
-    
-    content.innerHTML = '<' + pTag + ' style="font-family:Book Antiqua, serif;">Scrie un răspuns:</' + pTag + '><' + textA + ' style="width:100%; height:80px; border:1px solid #4a323c;"></' + textA + '><button style="background:#4a323c; color:white; border:none; padding:5px; margin-top:5px; cursor:pointer;">Trimite Răspuns</button>';
-    dialog.showModal();
+function openReply(pNick, pDate, pTitle) {
+const dialog = document.getElementById('reply-popup');
+const content = document.getElementById('popup-content');
+const tA = "textarea"; const pT = "p"; const iN = "input";
+content.innerHTML = '<' + pT + ' style="color:red; font-size:0.8rem;">@' + pNick + ' -- ' + pDate + ' -- ' + pTitle + '</' + pT + '>' +
+'<' + iN + ' type="text" id="rNick" placeholder="Nume/Nick" style="width:100%; margin-bottom:5px;">' +
+'<' + tA + ' id="rComm" style="width:100%; height:80px; border:1px solid #4a323c;" placeholder="Răspunsul tău..."></' + tA + '>' +
+'<button onclick="sendReply(\'' + pNick + '\')" style="background:#4a323c; color:white; border:none; padding:5px 20px; cursor:pointer; margin-top:5px;">Trimite Răspuns</button>';
+dialog.showModal();
 }
 </script>
