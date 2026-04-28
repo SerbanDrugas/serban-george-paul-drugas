@@ -127,14 +127,19 @@ privEmail: priv.email, privPhone: priv.phone, parent: "Principal"
 function openReply(pNick, pDate, pTitle) {
 const dialog = document.getElementById('reply-popup');
 const content = document.getElementById('popup-content');
-content.innerHTML = '<p style="color:red; font-size:0.8rem; margin-bottom:10px;">Răspuns către: @' + pNick + '</p>' +
-'<input type="text" id="rNick" placeholder="Nume/Nick" required style="width:100%; margin-bottom:5px; border:1px solid #4a323c;">' +
-'<div style="display:flex; gap:5px; margin-bottom:5px;"><button type="button" onclick="priv.rEm=\'public\'" style="font-size:0.6rem;">Email Public</button><button type="button" onclick="priv.rEm=\'admin\'" style="font-size:0.6rem;">Email Admin</button></div>' +
-'<input type="text" id="rTitle" placeholder="Titlu (opțional)" style="width:100%; margin-bottom:5px; border:1px solid #4a323c;">' +
-'<textarea id="rComm" style="width:100%; height:100px; border:1px solid #4a323c; white-space:pre-wrap;" placeholder="Scrie aici..."></textarea>' +
-'<button onclick="submitReply(\''+pNick+'\',\''+pDate+'\')" style="background:#4a323c; color:white; border:none; padding:10px; width:100%; cursor:pointer; margin-top:5px;">Trimite Răspuns</button>';
+// Variabile pentru a păcăli procesorul Hugo
+const lt = '<'; const gt = '>';
+const pT = "p"; const iN = "input"; const tA = "textarea";
+
+content.innerHTML = lt + pT + ' style="color:red; font-size:0.8rem; margin-bottom:10px;"' + gt + 'Răspuns către: @' + pNick + lt + '/' + pT + gt +
+lt + iN + ' type="text" id="rNick" placeholder="Nume/Nick" required style="width:100%; margin-bottom:5px; border:1px solid #4a323c;"' + gt +
+lt + 'div style="display:flex; gap:5px; margin-bottom:5px;"' + gt + lt + 'button type="button" onclick="priv.rEm=\'public\'" style="font-size:0.6rem;"' + gt + 'Email Public' + lt + '/button' + gt + lt + 'button type="button" onclick="priv.rEm=\'admin\'" style="font-size:0.6rem;"' + gt + 'Email Admin' + lt + '/button' + gt + lt + '/div' + gt +
+lt + iN + ' type="text" id="rTitle" placeholder="Titlu (opțional)" style="width:100%; margin-bottom:5px; border:1px solid #4a323c;"' + gt +
+lt + tA + ' id="rComm" style="width:100%; height:100px; border:1px solid #4a323c; white-space:pre-wrap;" placeholder="Scrie aici..."' + gt + lt + '/' + tA + gt +
+lt + 'button onclick="submitReply(\''+pNick+'\',\''+pDate+'\')" style="background:#4a323c; color:white; border:none; padding:10px; width:100%; cursor:pointer; margin-top:5px;"' + gt + 'Trimite Răspuns' + lt + '/button' + gt;
 dialog.showModal();
 }
+
 
 async function submitReply(pNick, pDate) {
 const nick = document.getElementById('rNick').value;
