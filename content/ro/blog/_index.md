@@ -59,7 +59,7 @@ description: " "
 </dialog>
 
 <script>
-const gUrl = "https://script.google.com/macros/s/AKfycbyus6US7dTTeNXVPtii1PFZcZb2jnlzGvf_I2DoLBjEkgJmfl7b8Y3ArisKEm6A9lriXw/exec"; // ASIGURĂ-TE CĂ E URL-UL NOU DE DUPĂ DEPLOY
+const gUrl = "https://script.google.com/macros/s/AKfycbyus6US7dTTeNXVPtii1PFZcZb2jnlzGvf_I2DoLBjEkgJmfl7b8Y3ArisKEm6A9lriXw/exec";
 let priv = {email:null, phone:null};
 let isAdmin = localStorage.getItem('isBlogAdmin') === 'true';
 
@@ -72,53 +72,86 @@ try {
 const res = await fetch(gUrl);
 const allData = await res.json();
 display.innerHTML = "";
-
-// Separăm principalele de răspunsuri
 const principals = allData.filter(c => c.parent === "Principal" || !c.parent);
 const replies = allData.filter(c => c.parent !== "Principal" && c.parent);
-
 principals.forEach(p => {
 let calup = document.createElement('div');
 calup.className = 'comment-block-red';
-let html = '<div class="comment-main-fixed ' + (p.nick === "Admin" ? "bg-admin" : "bg-visitor") + '" style="border:1px solid blue; padding:5px; margin-bottom:2mm;">';
-if(isAdmin) html += '<button class="admin-delete-btn" onclick="deleteComm(' + p.id + ')">Șterge</button>';
+let html = '<div class="comment-main-fixed ' + (p.nick === "Admin" ? "bg-admin" : "bg-visitor") + '" style="border:1px solid blue; padding:5px; margin-bottom:2mm; position:relative;">';
+if(isAdmin) html += '<button class="admin-delete-btn" onclick="deleteComm(' + p.id + ')">X</button>';
 html += '<span class="nick-red">' + p.nick + '</span> -- <span class="date-blue">' + new Date(p.date).toLocaleString() + '</span>' + (p.title ? ' -- <span class="title-italic">' + p.title + '</span>' : '');
 html += '<p style="white-space:pre-wrap; margin:5px 0;">' + p.comment + '</p>';
 html += '<button class="btn-reply-small" onclick="openReply(\''+p.nick+'\',\''+p.date+'\',\''+p.title+'\')">Comentează</button></div>';
-
-// Adăugăm răspunsurile acestui calup
 const theseReplies = replies.filter(r => r.parent === p.nick + "_" + p.date);
 theseReplies.forEach(r => {
-html += '<div class="comment-reply ' + (r.nick === "Admin" ? "bg-admin" : "bg-visitor") + '" style="border:1px solid blue; margin-left:36mm; padding:5px; margin-top:2mm;">';
-if(isAdmin) html += '<button class="admin-delete-btn" onclick="deleteComm(' + r.id + ')">Șterge</button>';
-html += '<span class="reply-intro">@' + r.parent.split('_')[0] + ' -- ' + r.title + '</span>';
+html += '<div class="comment-reply ' + (r.nick === "Admin" ? "bg-admin" : "bg-visitor") + '" style="border:1px solid blue; margin-left:36mm; padding:5px; margin-top:2mm; position:relative;">';
+if(isAdmin) html += '<button class="admin-delete-btn" onclick="deleteComm(' + r.id + ')">X</button>';
+html += '<span style="color:#888; font-size:0.7rem; display:block;">@' + r.parent.split('_')[0] + ' -- ' + r.title + '</span>';
 html += '<span class="nick-red">' + r.nick + '</span> -- <span class="date-blue">' + new Date(r.date).toLocaleString() + '</span>';
-html += '<p style="margin:5px 0;">' + r.comment + '</p>';
+html += '<p style="margin:5px 0; white-space:pre-wrap;">' + r.comment + '</p>';
 html += '<button class="btn-reply-small" onclick="openReply(\''+r.nick+'\',\''+r.date+'\',\''+r.title+'\')">Comentează</button></div>';
 });
-
 calup.innerHTML = html;
 display.appendChild(calup);
 });
-} catch(e) { display.innerHTML = "Eroare la încărcare."; }
+} catch(e) { display.innerHTML = "Momentan nu sunt comentarii sau eroare conexiune."; }
+}
+
+window.onload = loadComments;
+
+async function sendToGoogle(payload) {
+await fetch(gUrl, { method: "POST", mode: "no-cors", body: JSON.stringify(payload) });
+alert("Comentariul a fost trimis!");
+location.reload();
+}
+
+document.getElementById('main-comment-form').onsubmit = function(e) {
+e.preventDefault();
+const nick = document.getElementById('nick').value;
+if(nick === "ParolaMea") { localStorage.setItem('isBlogAdmin', 'true'); location.reload(); return; }
+const em = document.getElementById('email').value;
+const ph = document.getElementById('phone').value;
+if((em && !priv.email) || (ph && !priv.phone)) {
+document.getElementById('status-message').innerText = "Selectează public / doar admin!";
+document.getElementById('status-message').style.color = "red";
+return;
+}
+sendToGoogle({
+nick: nick, email: em, phone: ph,
+title: document.getElementById('title').value,
+comment: document.getElementById('comment').value,
+privEmail: priv.email, privPhone: priv.phone, parent: "Principal"
+});
+};
+
+function openReply(pNick, pDate, pTitle) {
+const dialog = document.getElementById('reply-popup');
+const content = document.getElementById('popup-content');
+content.innerHTML = '<p style="color:red; font-size:0.8rem; margin-bottom:10px;">Răspuns către: @' + pNick + '</p>' +
+'<input type="text" id="rNick" placeholder="Nume/Nick" required style="width:100%; margin-bottom:5px; border:1px solid #4a323c;">' +
+'<div style="display:flex; gap:5px; margin-bottom:5px;"><button type="button" onclick="priv.rEm=\'public\'" style="font-size:0.6rem;">Email Public</button><button type="button" onclick="priv.rEm=\'admin\'" style="font-size:0.6rem;">Email Admin</button></div>' +
+'<input type="text" id="rTitle" placeholder="Titlu (opțional)" style="width:100%; margin-bottom:5px; border:1px solid #4a323c;">' +
+'<textarea id="rComm" style="width:100%; height:100px; border:1px solid #4a323c; white-space:pre-wrap;" placeholder="Scrie aici..."></textarea>' +
+'<button onclick="submitReply(\''+pNick+'\',\''+pDate+'\')" style="background:#4a323c; color:white; border:none; padding:10px; width:100%; cursor:pointer; margin-top:5px;">Trimite Răspuns</button>';
+dialog.showModal();
+}
+
+async function submitReply(pNick, pDate) {
+const nick = document.getElementById('rNick').value;
+const comm = document.getElementById('rComm').value;
+if(!nick || !comm) { alert("Numele și comentariul sunt obligatorii!"); return; }
+sendToGoogle({
+nick: nick, email: "", phone: "",
+title: document.getElementById('rTitle').value,
+comment: comm, privEmail: priv.rEm, privPhone: "admin",
+parent: pNick + "_" + pDate
+});
 }
 
 async function deleteComm(id) {
-if(!confirm("Ștergi definitiv?")) return;
+if(!confirm("Ștergi definitiv acest comentariu?")) return;
 await fetch(gUrl, { method: "POST", mode: "no-cors", body: JSON.stringify({action: "delete", id: id})});
 location.reload();
 }
-
-// Sistem Admin: Dacă scrii parola secretă la Nickname, devii Admin
-document.getElementById('main-comment-form').onsubmit = async function(e) {
-e.preventDefault();
-const nick = document.getElementById('nick').value;
-if(nick === "ParolaTaSecreta") { // Schimbă "ParolaTaSecreta" cu ce vrei tu
-localStorage.setItem('isBlogAdmin', 'true');
-alert("Salut, Admin!");
-location.reload();
-return;
-}
-// ... restul codului de trimitere de dinainte ...
-};
 </script>
+
