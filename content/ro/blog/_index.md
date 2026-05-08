@@ -59,22 +59,25 @@ description: " "
 </dialog>
 
 <script>
-const gUrl = "https://script.google.com/macros/s/AKfycbzeyuzv1ar1SQRgr70JUrTDy8IGXm1QJ-cOswA31NaYuBYKSZSfecePwvaBwz0HlNGr/exec";
+const gUrl = "https://script.google.com/macros/s/AKfycbxNslzE-Ovz9Ckj_LrdkuduY5dPwSB3b-2Ha3be8O8YDORdt6HW3oJ95fjdCvcs-1_s/exec";
 let priv = {email:null, phone:null, rEm:"admin"};
 let isAdmin = localStorage.getItem('isBlogAdmin') === 'true';
 function setPrivacy(t, v) { priv[t] = v; document.getElementById('status-message').innerText = ""; }
+
 async function loadComments() {
 const display = document.getElementById('comments-display');
-display.innerHTML = "Se încarcă comentariile...";
+display.innerHTML = "Se încarcă...";
 try {
-const res = await fetch(gUrl + "?v=" + Math.random()); 
-if (!res.ok) throw new Error("Eroare server");
+// Eliminăm Math.random() și parametrii complecși care pot declanșa CORS
+const res = await fetch(gUrl); 
+if (!res.ok) throw new Error();
 const allData = await res.json();
 display.innerHTML = "";
 if (!allData || allData.length === 0) {
-display.innerHTML = "Momentan nu sunt comentarii. Fii primul care scrie!";
+display.innerHTML = "Momentan nu sunt comentarii.";
 return;
 }
+
 const principals = allData.filter(c => c.parent === "Principal" || !c.parent);
 const replies = allData.filter(c => c.parent !== "Principal" && c.parent);
 principals.forEach(p => {
@@ -98,8 +101,7 @@ calup.innerHTML = html;
 display.appendChild(calup);
 });
 } catch(e) { 
-console.error("Eroare Fetch:", e);
-display.innerHTML = "Eroare la încărcare. Verifică consola (F12).";
+display.innerHTML = "Eroare la încărcare. Reîmprospătează pagina.";
 }
 }
 
