@@ -60,24 +60,21 @@ description: " "
 
 <script>
 const gUrl = "https://script.google.com/macros/s/AKfycbzmf_WnZmMs3RANxIPx-NY-ofXfuSQkAG_N0-GDaJHhRel2PotBiIFmqQ9_5fH28vJr/exec";
-let priv = {email:null, phone:null, rEm: "admin"};
+let priv = {email:null, phone:null, rEm:"admin"};
 let isAdmin = localStorage.getItem('isBlogAdmin') === 'true';
-
 function setPrivacy(t, v) { priv[t] = v; document.getElementById('status-message').innerText = ""; }
-
 async function loadComments() {
 const display = document.getElementById('comments-display');
 display.innerHTML = "Se încarcă comentariile...";
 try {
-const res = await fetch(gUrl + "?t=" + new Date().getTime(), {
-method: 'GET',
-// FĂRĂ alte headere, FĂRĂ alte setări. 
-// Browserul va urma automat redirect-ul către datele JSON.
-});
-
+const res = await fetch(gUrl, {method: 'GET', redirect: 'follow'}); 
 if (!res.ok) throw new Error("Eroare server");
 const allData = await res.json();
 display.innerHTML = "";
+if (!allData || allData.length === 0) {
+display.innerHTML = "Momentan nu sunt comentarii. Fii primul care scrie!";
+return;
+}
 const principals = allData.filter(c => c.parent === "Principal" || !c.parent);
 const replies = allData.filter(c => c.parent !== "Principal" && c.parent);
 principals.forEach(p => {
@@ -105,34 +102,24 @@ console.error("Eroare Fetch:", e);
 display.innerHTML = "Eroare la încărcare. Verifică consola (F12).";
 }
 }
-
 window.onload = loadComments;
-
 async function sendToGoogle(payload) { 
 const status = document.getElementById('status-message');
 status.innerText = "Se trimite...";
-  
 try {
 await fetch(gUrl, {
 method: "POST",
-mode: "no-cors", // Revenim la no-cors pentru a ignora restrictiile de securitate ale browserului
-headers: { "Content-Type": "text/plain" }, // GAS preferă text/plain pentru no-cors
+mode: "no-cors",
+headers: { "Content-Type": "text/plain" },
 body: JSON.stringify(payload)
 });
-
-// Deoarece folosim no-cors, nu putem citi raspunsul de la Google.
-// Presupunem succesul dupa 1.5 secunde si reincarcam.
 status.innerText = "Trimis cu succes!";
-setTimeout(() => {
-location.reload();
-}, 1500);
-
+setTimeout(() => { location.reload(); }, 1500);
 } catch (e) {
 console.error("Eroare:", e);
 status.innerText = "Eroare la trimitere. Incearca din nou.";
 }
 }
-
 document.getElementById('main-comment-form').onsubmit = function(e) {
 e.preventDefault();
 const nick = document.getElementById('nick').value;
@@ -151,14 +138,11 @@ comment: document.getElementById('comment').value,
 privEmail: priv.email, privPhone: priv.phone, parent: "Principal"
 });
 };
-
 function openReply(pNick, pDate, pTitle) {
 const dialog = document.getElementById('reply-popup');
 const content = document.getElementById('popup-content');
-// Variabile pentru a păcăli procesorul Hugo
 const lt = '<'; const gt = '>';
 const pT = "p"; const iN = "input"; const tA = "textarea";
-
 content.innerHTML = lt + pT + ' style="color:red; font-size:0.8rem; margin-bottom:10px;"' + gt + 'Răspuns către: @' + pNick + lt + '/' + pT + gt +
 lt + iN + ' type="text" id="rNick" placeholder="Nume/Nick" required style="width:100%; margin-bottom:5px; border:1px solid #4a323c;"' + gt +
 lt + 'div style="display:flex; gap:5px; margin-bottom:5px;"' + gt + lt + 'button type="button" onclick="priv.rEm=\'public\'" style="font-size:0.6rem;"' + gt + 'Email Public' + lt + '/button' + gt + lt + 'button type="button" onclick="priv.rEm=\'admin\'" style="font-size:0.6rem;"' + gt + 'Email Admin' + lt + '/button' + gt + lt + '/div' + gt +
@@ -167,8 +151,6 @@ lt + tA + ' id="rComm" style="width:100%; height:100px; border:1px solid #4a323c
 lt + 'button onclick="submitReply(\''+pNick+'\',\''+pDate+'\')" style="background:#4a323c; color:white; border:none; padding:10px; width:100%; cursor:pointer; margin-top:5px;"' + gt + 'Trimite Răspuns' + lt + '/button' + gt;
 dialog.showModal();
 }
-
-
 async function submitReply(pNick, pDate) {
 const nick = document.getElementById('rNick').value;
 const comm = document.getElementById('rComm').value;
@@ -180,12 +162,10 @@ comment: comm, privEmail: priv.rEm, privPhone: "admin",
 parent: pNick + "_" + pDate
 });
 }
-
 async function deleteComm(id) {
 if(!confirm("Ștergi definitiv acest comentariu?")) return;
 await fetch(gUrl, { method: "POST", mode: "no-cors", body: JSON.stringify({action: "delete", id: id})});
 location.reload();
 }
 </script>
-
 
