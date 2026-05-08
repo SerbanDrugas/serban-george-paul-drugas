@@ -69,7 +69,8 @@ async function loadComments() {
 const display = document.getElementById('comments-display');
 display.innerHTML = "Se încarcă comentariile...";
 try {
-const res = await fetch(gUrl);
+const res = await fetch(gUrl + "?t=" + new Date().getTime());
+if (!res.ok) throw new Error("Eroare server");
 const allData = await res.json();
 display.innerHTML = "";
 const principals = allData.filter(c => c.parent === "Principal" || !c.parent);
@@ -94,7 +95,10 @@ html += '<button class="btn-reply-small" onclick="openReply(\''+r.nick+'\',\''+r
 calup.innerHTML = html;
 display.appendChild(calup);
 });
-} catch(e) { display.innerHTML = "Momentan nu sunt comentarii sau eroare conexiune."; }
+} catch(e) { 
+console.error("Eroare Fetch:", e);
+display.innerHTML = "Eroare la încărcare. Verifică consola (F12).";
+}
 }
 
 window.onload = loadComments;
