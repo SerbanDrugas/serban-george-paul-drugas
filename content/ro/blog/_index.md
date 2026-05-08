@@ -103,12 +103,29 @@ display.innerHTML = "Eroare la încărcare. Verifică consola (F12).";
 
 window.onload = loadComments;
 
-async function sendToGoogle(payload) {
+async function sendToGoogle(payload) { 
+const status = document.getElementById('status-message');
+status.innerText = "Se trimite...";
+  
 try {
-await fetch(gUrl, { method: "POST", body: JSON.stringify(payload) });
-alert("Comentariul a fost trimis!");
+await fetch(gUrl, {
+method: "POST",
+mode: "no-cors", // Revenim la no-cors pentru a ignora restrictiile de securitate ale browserului
+headers: { "Content-Type": "text/plain" }, // GAS preferă text/plain pentru no-cors
+body: JSON.stringify(payload)
+});
+
+// Deoarece folosim no-cors, nu putem citi raspunsul de la Google.
+// Presupunem succesul dupa 1.5 secunde si reincarcam.
+status.innerText = "Trimis cu succes!";
+setTimeout(() => {
 location.reload();
-} catch (e) {console.error("Eroare la trimitere:", e); }
+}, 1500);
+
+} catch (e) {
+console.error("Eroare:", e);
+status.innerText = "Eroare la trimitere. Incearca din nou.";
+}
 }
 
 document.getElementById('main-comment-form').onsubmit = function(e) {
