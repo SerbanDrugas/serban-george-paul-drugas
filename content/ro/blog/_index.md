@@ -59,7 +59,7 @@ description: " "
 </dialog>
 
 <script>
-const gUrl = "https://script.google.com/macros/s/AKfycbwzM6-kwxOfhX6-5Z6K9MkrlVOvCWzoqX6hvOREVpTYZ2-HIrNQ846q68Hx0O1iYqPI/exec";
+const gUrl = "https://script.google.com/macros/s/AKfycbzeyuzv1ar1SQRgr70JUrTDy8IGXm1QJ-cOswA31NaYuBYKSZSfecePwvaBwz0HlNGr/exec";
 let priv = {email:null, phone:null, rEm:"admin"};
 let isAdmin = localStorage.getItem('isBlogAdmin') === 'true';
 function setPrivacy(t, v) { priv[t] = v; document.getElementById('status-message').innerText = ""; }
@@ -67,7 +67,7 @@ async function loadComments() {
 const display = document.getElementById('comments-display');
 display.innerHTML = "Se încarcă comentariile...";
 try {
-const res = await fetch(gUrl, + "?v=" + Math.random()); 
+const res = await fetch(gUrl + "?v=" + Math.random()); 
 if (!res.ok) throw new Error("Eroare server");
 const allData = await res.json();
 display.innerHTML = "";
