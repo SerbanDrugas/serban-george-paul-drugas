@@ -69,7 +69,12 @@ async function loadComments() {
 const display = document.getElementById('comments-display');
 display.innerHTML = "Se încarcă comentariile...";
 try {
-const res = await fetch(gUrl + "?t=" + new Date().getTime(), {method: 'GET', redirect: 'follow'});
+const res = await fetch(gUrl + "?t=" + new Date().getTime(), {
+method: 'GET',
+// FĂRĂ alte headere, FĂRĂ alte setări. 
+// Browserul va urma automat redirect-ul către datele JSON.
+});
+
 if (!res.ok) throw new Error("Eroare server");
 const allData = await res.json();
 display.innerHTML = "";
