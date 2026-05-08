@@ -59,7 +59,7 @@ description: " "
 </dialog>
 
 <script>
-const gUrl = "https://script.google.com/macros/s/AKfycbzWuEtLy4z-kY4M6ZdtMu8NdRF4XCoq41sVW_aXOrieKE-2BHtWJ0ta0gadZtEdJVIt/exec";
+const gUrl = "https://script.google.com/macros/s/AKfycbzmf_WnZmMs3RANxIPx-NY-ofXfuSQkAG_N0-GDaJHhRel2PotBiIFmqQ9_5fH28vJr/exec";
 let priv = {email:null, phone:null, rEm = "admin"};
 let isAdmin = localStorage.getItem('isBlogAdmin') === 'true';
 
