@@ -59,7 +59,7 @@ description: " "
 </dialog>
 
 <script>
-const gUrl = "https://script.google.com/macros/s/AKfycbxNslzE-Ovz9Ckj_LrdkuduY5dPwSB3b-2Ha3be8O8YDORdt6HW3oJ95fjdCvcs-1_s/exec";
+const gUrl = "https://script.google.com/macros/s/AKfycbypSydF4zYejUMQqTa6pLXtzODvX4j-nDO0Pq7JPQDtksXzAMK6QX2bshO0UmM6V93y/exec";
 let priv = {email:null, phone:null, rEm:"admin"};
 let isAdmin = localStorage.getItem('isBlogAdmin') === 'true';
 function setPrivacy(t, v) { priv[t] = v; document.getElementById('status-message').innerText = ""; }
