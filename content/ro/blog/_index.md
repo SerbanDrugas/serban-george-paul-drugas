@@ -102,24 +102,26 @@ console.error("Eroare Fetch:", e);
 display.innerHTML = "Eroare la încărcare. Verifică consola (F12).";
 }
 }
+
 window.onload = loadComments;
-async function sendToGoogle(payload) { 
+
+async function sendToGoogle(payload) {
 const status = document.getElementById('status-message');
 status.innerText = "Se trimite...";
 try {
 await fetch(gUrl, {
 method: "POST",
-mode: "no-cors",
-headers: { "Content-Type": "text/plain" },
+mode: "no-cors", 
+headers: { "Content-Type": "text/plain;charset=utf-8" }, // FOARTE IMPORTANT
 body: JSON.stringify(payload)
 });
 status.innerText = "Trimis cu succes!";
 setTimeout(() => { location.reload(); }, 1500);
 } catch (e) {
-console.error("Eroare:", e);
-status.innerText = "Eroare la trimitere. Incearca din nou.";
+status.innerText = "Eroare la trimitere.";
 }
 }
+
 document.getElementById('main-comment-form').onsubmit = function(e) {
 e.preventDefault();
 const nick = document.getElementById('nick').value;
