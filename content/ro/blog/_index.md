@@ -59,7 +59,7 @@ description: " "
 </dialog>
 
 <script>
-const gUrl = "https://script.google.com/macros/s/AKfycbyus6US7dTTeNXVPtii1PFZcZb2jnlzGvf_I2DoLBjEkgJmfl7b8Y3ArisKEm6A9lriXw/exec";
+const gUrl = "https://script.google.com/macros/s/AKfycbwuEz6wUWgs8wrBMT6u2FfoVPlMIxm-RpCMW6a0TuPH7KVWmXq4r5gdCT-cgl8DhiMKTg/exec";
 let priv = {email:null, phone:null};
 let isAdmin = localStorage.getItem('isBlogAdmin') === 'true';
 
@@ -104,9 +104,11 @@ display.innerHTML = "Eroare la încărcare. Verifică consola (F12).";
 window.onload = loadComments;
 
 async function sendToGoogle(payload) {
-await fetch(gUrl, { method: "POST", mode: "no-cors", body: JSON.stringify(payload) });
+try {
+await fetch(gUrl, { method: "POST", body: JSON.stringify(payload) });
 alert("Comentariul a fost trimis!");
 location.reload();
+} catch (e) {console.error("Eroare la trimitere:", e); }
 }
 
 document.getElementById('main-comment-form').onsubmit = function(e) {
