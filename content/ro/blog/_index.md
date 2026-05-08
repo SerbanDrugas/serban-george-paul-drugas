@@ -59,7 +59,7 @@ description: " "
 </dialog>
 
 <script>
-const gUrl = "https://script.google.com/macros/s/AKfycbzpeKr-VNKqTituTjdb6_wozcGlOeY9qeSVpoRRZiJ48_WoRDnuchuOFhSmWtEHei9H/exec";
+const gUrl = "https://script.google.com/macros/s/AKfycbw4KLC02gjEwx0i1nYuZ6HcGQXN8-lGtalaeTo2xVL9mDfWL1ItfUemHQ4SxKQb7eAI/exec";
 let priv = {email:null, phone:null, rEm:"admin"};
 let isAdmin = localStorage.getItem('isBlogAdmin') === 'true';
 function setPrivacy(t, v) { priv[t] = v; document.getElementById('status-message').innerText = ""; }
@@ -69,7 +69,7 @@ const display = document.getElementById('comments-display');
 display.innerHTML = "Se încarcă...";
 try {
 // Eliminăm Math.random() și parametrii complecși care pot declanșa CORS
-const res = await fetch(gUrl, {method: "GET", mode: "cors"}); 
+const res = await fetch(gUrl); 
 if (!res.ok) throw new Error();
 const allData = await res.json();
 display.innerHTML = "";
