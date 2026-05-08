@@ -60,7 +60,7 @@ description: " "
 
 <script>
 const gUrl = "https://script.google.com/macros/s/AKfycbzmf_WnZmMs3RANxIPx-NY-ofXfuSQkAG_N0-GDaJHhRel2PotBiIFmqQ9_5fH28vJr/exec";
-let priv = {email:null, phone:null, rEm = "admin"};
+let priv = {email:null, phone:null, rEm: "admin"};
 let isAdmin = localStorage.getItem('isBlogAdmin') === 'true';
 
 function setPrivacy(t, v) { priv[t] = v; document.getElementById('status-message').innerText = ""; }
