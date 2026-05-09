@@ -6,7 +6,7 @@ title: "Portfolio"
 <style>
     .portfolio-grid {
         display: grid;
-        grid-template-columns: 1fr 2fr; /* Proporția 1/3 și 2/3 */
+        grid-template-columns: 1fr 1fr; /* Proporția 1/2 și 1/2 */
         gap: 20px;
         width: 100%;
         min-height: auto;
