@@ -15,7 +15,7 @@ nav.pv3 { padding-top: 0.2rem !important; padding-bottom: 0.2rem !important; }
 nav, .fixed-nav-scrolling { min-height: 0 !important; }
 nav a, nav span { margin-top: 0 !important; margin-bottom: 0 !important; line-height: 1 !important; }
 .flex-l.items-center { height: auto !important; }
-.bg-black, .bg-black-60, .header-main, nav.pv3 { background-color: #4a323c !important; }
+.bg-black, .bg-black-60, .header-main, nav.pv3 { background-color: #41324a !important; }
 nav a, nav span, header h1 { color: #ffffff !important; }
 nav a:hover { color: #0a4c78 !important; text-decoration: underline; }
 
