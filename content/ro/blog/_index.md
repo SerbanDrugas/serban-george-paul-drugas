@@ -10,7 +10,7 @@ description: " "
 Trimite-mi un gând sau un comentariu. Îl voi citi pe email și, dacă dorești, îl voi posta în dreapta.
 </div>
 
-<form action="https://formspree.io" method="POST">
+<form action="https://formspree.io/f/xjglaagz" method="POST">
 <input type="text" name="Nickname" placeholder="Nume / Nickname" required style="width:100%; border:1px solid #4a323c; margin-bottom:10px; padding:5px;">
 
 <div class="input-group" style="margin-bottom:10px;">
