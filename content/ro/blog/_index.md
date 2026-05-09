@@ -40,7 +40,7 @@ Trimite-mi un gând sau un comentariu. Îl voi citi pe email și, dacă dorești
 
 {{< rawhtml >}}
 <!-- CALUP EXEMPLU (Copiază acest bloc de la <div class="comment-block-red"> până la </div> pentru fiecare postare nouă) -->
-<div class="comment-block-red" style="border:1px solid red; max-height:80mm; overflow-y:auto; padding:2mm; position:relative;">
+<div class="comment-block-red" style="border:1px solid red; max-height:150mm; overflow-y:auto; padding:2mm; position:relative;">
     
 <!-- Postarea Ta (Administrator) -->
 <div class="comment-main-fixed bg-admin" style="border:1px solid blue; width:100%; padding:5px; margin-bottom:2mm;">
@@ -49,7 +49,7 @@ Trimite-mi un gând sau un comentariu. Îl voi citi pe email și, dacă dorești
 </div>
 
 <!-- Răspuns de la un vizitator (Adăugat manual de tine după ce primești mailul) -->
-<div class="comment-reply bg-visitor" style="border:1px solid blue; margin-left:36mm; width:calc(100% - 36mm); padding:5px; margin-top:2mm;">
+<div class="comment-reply bg-visitor" style="border:1px solid blue; margin-left:12mm; margin-top:5mm; width:calc(100% - 36mm); padding:5px; margin-top:2mm;">
 <span class="nick-red">@Vizitator</span> -- <span class="date-blue">Data...</span>
 <p style="margin:5px 0;">Comentariul tău poate apărea aici! Trimite-l din formularul din stânga!</p>
 </div>
