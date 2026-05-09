@@ -272,5 +272,10 @@ textarea { height: 100px; resize: none; overflow-y: scroll; white-space: pre-wra
     dialog { width: 100vw; height: 100vh; }
 }
 
+/* ASCUNDERE PAGINI ADMINISTRATIVE DIN MENIU */
+nav a[href*="/shop/"], 
+nav a[href*="/admin/"] {
+    display: none !important;
+}
 
 
