@@ -38,6 +38,7 @@ Trimite-mi un gând sau un comentariu. Îl voi citi pe email și, dacă dorești
 <!-- COLOANA DREAPTĂ: POSTĂRILE TALE (Le adaugi manual aici) -->
 <main class="blog-comments-col" id="comments-display" style="display:flex; flex-direction:column; gap:5mm;">
 
+{{< rawhtml >}}
 <!-- CALUP EXEMPLU (Copiază acest bloc de la <div class="comment-block-red"> până la </div> pentru fiecare postare nouă) -->
 <div class="comment-block-red" style="border:1px solid red; max-height:80mm; overflow-y:auto; padding:2mm; position:relative;">
     
@@ -45,16 +46,17 @@ Trimite-mi un gând sau un comentariu. Îl voi citi pe email și, dacă dorești
     <div class="comment-main-fixed bg-admin" style="border:1px solid blue; width:100%; padding:5px; margin-bottom:2mm;">
         <span class="nick-red">Serban</span> -- <span class="date-blue">23 Mai 2024</span> -- <span class="title-italic">Primul Eseu</span>
         <p style="margin:5px 0; white-space:pre-wrap;">Bine ați venit pe blogul meu! Aceasta este o postare adăugată manual în cod. Pentru a adăuga altele, doar copiez acest format în fișierul _index.md.</p>
-    </div>
+</div>
 
-    <!-- Răspuns de la un vizitator (Adăugat manual de tine după ce primești mailul) -->
-    <div class="comment-reply bg-visitor" style="border:1px solid blue; margin-left:36mm; width:calc(100% - 36mm); padding:5px; margin-top:2mm;">
-        <span class="nick-red">@Vizitator</span> -- <span class="date-blue">24 Mai 2024</span>
-        <p style="margin:5px 0;">O idee foarte bună să postezi manual! Succes!</p>
-    </div>
+<!-- Răspuns de la un vizitator (Adăugat manual de tine după ce primești mailul) -->
+<div class="comment-reply bg-visitor" style="border:1px solid blue; margin-left:36mm; width:calc(100% - 36mm); padding:5px; margin-top:2mm;">
+<span class="nick-red">@Vizitator</span> -- <span class="date-blue">24 Mai 2024</span>
+<p style="margin:5px 0;">O idee foarte bună să postezi manual! Succes!</p>
+</div>
 
 </div>
 <!-- SFÂRȘIT CALUP -->
+{{< /rawhtml >}}
 
 </main>
 </div>
