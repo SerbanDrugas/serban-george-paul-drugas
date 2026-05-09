@@ -4,172 +4,57 @@ description: " "
 ---
 
 <div class="blog-container">
+<!-- COLOANA STÂNGĂ: FORMULARUL (Trimite pe email prin Formspree) -->
 <aside class="blog-form-col">
-<div id="status-message" style="color: #2c2c2c; font-size: 0.8rem; margin-bottom: 5px; min-height: 1.2rem;">* Obligatoriu dacă introduci email sau nr. tel.</div>
-<form id="main-comment-form">
-<input type="text" id="nick" placeholder="Nume / Nickname" required style="width:100%; border:1px solid #4a323c; margin-bottom:10px;">
+<div id="status-message" style="color: #2c2c2c; font-size: 0.8rem; margin-bottom: 10px;">
+Trimite-mi un gând sau un comentariu. Îl voi citi pe email și, dacă dorești, îl voi posta în dreapta.
+</div>
+
+<form action="https://formspree.io" method="POST">
+<input type="text" name="Nickname" placeholder="Nume / Nickname" required style="width:100%; border:1px solid #4a323c; margin-bottom:10px; padding:5px;">
+
 <div class="input-group" style="margin-bottom:10px;">
-<input type="email" id="email" placeholder="Email (opțional)" style="width:100%; border:1px solid #4a323c;">
-<div class="btn-toggle" style="display:flex; gap:5px; margin-top:2px;">
-<button type="button" onclick="setPrivacy('email', 'public')" style="font-size:0.7rem; cursor:pointer;">Public</button>
-<button type="button" onclick="setPrivacy('email', 'admin')" style="font-size:0.7rem; cursor:pointer;">Doar Admin</button>
+<input type="email" name="Email" placeholder="Emailul tău (ca să-ți pot răspunde)" style="width:100%; border:1px solid #4a323c; padding:5px;">
+<small style="font-size:0.7rem; color:#666;">* Emailul tău rămâne privat, doar eu îl voi vedea.</small>
 </div>
-</div>
+
 <div class="input-group" style="margin-bottom:10px;">
-<input type="tel" id="phone" placeholder="Telefon (opțional)" style="width:100%; border:1px solid #4a323c;">
-<div class="btn-toggle" style="display:flex; gap:5px; margin-top:2px;">
-<button type="button" onclick="setPrivacy('phone', 'public')" style="font-size:0.7rem; cursor:pointer;">Public</button>
-<button type="button" onclick="setPrivacy('phone', 'admin')" style="font-size:0.7rem; cursor:pointer;">Doar Admin</button>
+<input type="text" name="Titlu" maxlength="20" placeholder="Titlu mesaj (opțional)" style="width:100%; border:1px solid #4a323c; padding:5px;">
 </div>
-</div>
+
 <div class="input-group" style="margin-bottom:10px;">
-<input type="text" id="title" maxlength="20" placeholder="Titlu comentariu (opțional)" style="width:100%; border:1px solid #4a323c;">
-<small style="font-size:0.7rem; display:block;">max. 20 caractere</small>
-</div>
-<div class="input-group" style="margin-bottom:10px;">
-<textarea id="comment" maxlength="2500" placeholder="Scrie comentariul aici...&#10;(sau comentează la ceva existent, în dreapta)" style="width:100%; height:100px; border:1px solid #4a323c; resize:none; overflow-y:scroll; white-space:pre-wrap;"></textarea>
-<div style="display:flex; justify-content:space-between; align-items:center;">
+<textarea name="Mesaj" maxlength="2500" required placeholder="Scrie aici mesajul tău..." style="width:100%; height:150px; border:1px solid #4a323c; resize:none; padding:5px;"></textarea>
+<div style="display:flex; justify-content:space-between; align-items:center; margin-top:5px;">
 <small style="font-size:0.7rem;">max. 2500 caractere</small>
-<button type="submit" style="background:#4a323c; color:white; padding:5px 15px; border:none; cursor:pointer; font-weight:bold;">Trimite</button>
+<button type="submit" style="background:#4a323c; color:white; padding:8px 20px; border:none; cursor:pointer; font-weight:bold;">Trimite pe Mail</button>
 </div>
 </div>
+
+<!-- Câmp ascuns pentru a preveni spam-ul -->
+<input type="text" name="_gotcha" style="display:none">
 </form>
 </aside>
+
+<!-- COLOANA DREAPTĂ: POSTĂRILE TALE (Le adaugi manual aici) -->
 <main class="blog-comments-col" id="comments-display" style="display:flex; flex-direction:column; gap:5mm;">
-<!-- Exemplu Calup Comentarii -->
-<div class="comment-block-red" style="border:1px solid red; height:50mm; overflow-y:scroll; padding:2mm; background:transparent; position:relative;">
-<!-- Comentariu fix sus -->
-<div class="comment-main-fixed" style="border:1px solid blue; width:100%; background:white; margin-bottom:2mm; padding:5px;">
-<span class="nick-red" style="color:red; font-weight:bold;">Nume/Nick</span> -- <span class="date-blue" style="color:darkblue;">data și ora</span> -- <span class="title-italic" style="color:red; font-style:italic;">Titlu</span>
-<p style="margin:5px 0; white-space:pre-wrap;">Textul comentariului principal...</p>
-<button class="btn-reply-small" onclick="openReply()" style="height:7mm; width:12mm; font-size:0.6rem; background:#4a323c; color:white; border:none; cursor:pointer;">Comentează</button>
+
+<!-- CALUP EXEMPLU (Copiază acest bloc de la <div class="comment-block-red"> până la </div> pentru fiecare postare nouă) -->
+<div class="comment-block-red" style="border:1px solid red; max-height:80mm; overflow-y:auto; padding:2mm; position:relative;">
+    
+    <!-- Postarea Ta (Administrator) -->
+    <div class="comment-main-fixed bg-admin" style="border:1px solid blue; width:100%; padding:5px; margin-bottom:2mm;">
+        <span class="nick-red">Serban</span> -- <span class="date-blue">23 Mai 2024</span> -- <span class="title-italic">Primul Eseu</span>
+        <p style="margin:5px 0; white-space:pre-wrap;">Bine ați venit pe blogul meu! Aceasta este o postare adăugată manual în cod. Pentru a adăuga altele, doar copiez acest format în fișierul _index.md.</p>
+    </div>
+
+    <!-- Răspuns de la un vizitator (Adăugat manual de tine după ce primești mailul) -->
+    <div class="comment-reply bg-visitor" style="border:1px solid blue; margin-left:36mm; width:calc(100% - 36mm); padding:5px; margin-top:2mm;">
+        <span class="nick-red">@Vizitator</span> -- <span class="date-blue">24 Mai 2024</span>
+        <p style="margin:5px 0;">O idee foarte bună să postezi manual! Succes!</p>
+    </div>
+
 </div>
-<!-- Comentariu relativ -->
-<div class="comment-reply" style="border:1px solid blue; margin-left:36mm; width:calc(100% - 36mm); background:white; padding:5px; margin-top:2mm;">
-<span class="nick-red" style="color:red; font-weight:bold;">@Nume/Nick</span> -- <span class="date-blue" style="color:darkblue;">data și ora</span>
-<p style="margin:5px 0;">Răspuns relativ...</p>
-<button class="btn-reply-small" style="height:7mm; width:12mm; font-size:0.6rem; background:#4a323c; color:white; border:none; cursor:pointer;">Comentează</button>
-</div>
-</div>
+<!-- SFÂRȘIT CALUP -->
+
 </main>
 </div>
-<dialog id="reply-popup" style="border:1px solid #4a323c; padding:20px; background:#fdf5e6; max-width:90%;">
-<div id="popup-content"></div>
-<button onclick="document.getElementById('reply-popup').close()" style="margin-top:10px;">Închide</button>
-</dialog>
-
-<script>
-const gUrl = "https://script.google.com/macros/s/AKfycbw4KLC02gjEwx0i1nYuZ6HcGQXN8-lGtalaeTo2xVL9mDfWL1ItfUemHQ4SxKQb7eAI/exec";
-let priv = {email:null, phone:null, rEm:"admin"};
-let isAdmin = localStorage.getItem('isBlogAdmin') === 'true';
-function setPrivacy(t, v) { priv[t] = v; document.getElementById('status-message').innerText = ""; }
-
-async function loadComments() {
-const display = document.getElementById('comments-display');
-display.innerHTML = "Se încarcă...";
-try {
-// Eliminăm Math.random() și parametrii complecși care pot declanșa CORS
-const res = await fetch(gUrl); 
-if (!res.ok) throw new Error();
-const allData = await res.json();
-display.innerHTML = "";
-if (!allData || allData.length === 0) {
-display.innerHTML = "Momentan nu sunt comentarii.";
-return;
-}
-
-const principals = allData.filter(c => c.parent === "Principal" || !c.parent);
-const replies = allData.filter(c => c.parent !== "Principal" && c.parent);
-principals.forEach(p => {
-let calup = document.createElement('div');
-calup.className = 'comment-block-red';
-let html = '<div class="comment-main-fixed ' + (p.nick === "Admin" ? "bg-admin" : "bg-visitor") + '" style="border:1px solid blue; padding:5px; margin-bottom:2mm; position:relative;">';
-if(isAdmin) html += '<button class="admin-delete-btn" onclick="deleteComm(' + p.id + ')">X</button>';
-html += '<span class="nick-red">' + p.nick + '</span> -- <span class="date-blue">' + new Date(p.date).toLocaleString() + '</span>' + (p.title ? ' -- <span class="title-italic">' + p.title + '</span>' : '');
-html += '<p style="white-space:pre-wrap; margin:5px 0;">' + p.comment + '</p>';
-html += '<button class="btn-reply-small" onclick="openReply(\''+p.nick+'\',\''+p.date+'\',\''+p.title+'\')">Comentează</button></div>';
-const theseReplies = replies.filter(r => r.parent === p.nick + "_" + p.date);
-theseReplies.forEach(r => {
-html += '<div class="comment-reply ' + (r.nick === "Admin" ? "bg-admin" : "bg-visitor") + '" style="border:1px solid blue; margin-left:36mm; padding:5px; margin-top:2mm; position:relative;">';
-if(isAdmin) html += '<button class="admin-delete-btn" onclick="deleteComm(' + r.id + ')">X</button>';
-html += '<span style="color:#888; font-size:0.7rem; display:block;">@' + r.parent.split('_')[0] + ' -- ' + r.title + '</span>';
-html += '<span class="nick-red">' + r.nick + '</span> -- <span class="date-blue">' + new Date(r.date).toLocaleString() + '</span>';
-html += '<p style="margin:5px 0; white-space:pre-wrap;">' + r.comment + '</p>';
-html += '<button class="btn-reply-small" onclick="openReply(\''+r.nick+'\',\''+r.date+'\',\''+r.title+'\')">Comentează</button></div>';
-});
-calup.innerHTML = html;
-display.appendChild(calup);
-});
-} catch(e) { 
-display.innerHTML = "Eroare la încărcare. Reîmprospătează pagina.";
-}
-}
-
-window.onload = loadComments;
-
-async function sendToGoogle(payload) {
-const status = document.getElementById('status-message');
-status.innerText = "Se trimite...";
-try {
-await fetch(gUrl, {
-method: "POST",
-mode: "no-cors", 
-headers: { "Content-Type": "text/plain;charset=utf-8" }, // FOARTE IMPORTANT
-body: JSON.stringify(payload)
-});
-status.innerText = "Trimis cu succes!";
-setTimeout(() => { location.reload(); }, 1500);
-} catch (e) {
-status.innerText = "Eroare la trimitere.";
-}
-}
-
-document.getElementById('main-comment-form').onsubmit = function(e) {
-e.preventDefault();
-const nick = document.getElementById('nick').value;
-if(nick === "ParolaMea") { localStorage.setItem('isBlogAdmin', 'true'); location.reload(); return; }
-const em = document.getElementById('email').value;
-const ph = document.getElementById('phone').value;
-if((em && !priv.email) || (ph && !priv.phone)) {
-document.getElementById('status-message').innerText = "Selectează public / doar admin!";
-document.getElementById('status-message').style.color = "red";
-return;
-}
-sendToGoogle({
-nick: nick, email: em, phone: ph,
-title: document.getElementById('title').value,
-comment: document.getElementById('comment').value,
-privEmail: priv.email, privPhone: priv.phone, parent: "Principal"
-});
-};
-function openReply(pNick, pDate, pTitle) {
-const dialog = document.getElementById('reply-popup');
-const content = document.getElementById('popup-content');
-const lt = '<'; const gt = '>';
-const pT = "p"; const iN = "input"; const tA = "textarea";
-content.innerHTML = lt + pT + ' style="color:red; font-size:0.8rem; margin-bottom:10px;"' + gt + 'Răspuns către: @' + pNick + lt + '/' + pT + gt +
-lt + iN + ' type="text" id="rNick" placeholder="Nume/Nick" required style="width:100%; margin-bottom:5px; border:1px solid #4a323c;"' + gt +
-lt + 'div style="display:flex; gap:5px; margin-bottom:5px;"' + gt + lt + 'button type="button" onclick="priv.rEm=\'public\'" style="font-size:0.6rem;"' + gt + 'Email Public' + lt + '/button' + gt + lt + 'button type="button" onclick="priv.rEm=\'admin\'" style="font-size:0.6rem;"' + gt + 'Email Admin' + lt + '/button' + gt + lt + '/div' + gt +
-lt + iN + ' type="text" id="rTitle" placeholder="Titlu (opțional)" style="width:100%; margin-bottom:5px; border:1px solid #4a323c;"' + gt +
-lt + tA + ' id="rComm" style="width:100%; height:100px; border:1px solid #4a323c; white-space:pre-wrap;" placeholder="Scrie aici..."' + gt + lt + '/' + tA + gt +
-lt + 'button onclick="submitReply(\''+pNick+'\',\''+pDate+'\')" style="background:#4a323c; color:white; border:none; padding:10px; width:100%; cursor:pointer; margin-top:5px;"' + gt + 'Trimite Răspuns' + lt + '/button' + gt;
-dialog.showModal();
-}
-async function submitReply(pNick, pDate) {
-const nick = document.getElementById('rNick').value;
-const comm = document.getElementById('rComm').value;
-if(!nick || !comm) { alert("Numele și comentariul sunt obligatorii!"); return; }
-sendToGoogle({
-nick: nick, email: "", phone: "",
-title: document.getElementById('rTitle').value,
-comment: comm, privEmail: priv.rEm, privPhone: "admin",
-parent: pNick + "_" + pDate
-});
-}
-async function deleteComm(id) {
-if(!confirm("Ștergi definitiv acest comentariu?")) return;
-await fetch(gUrl, { method: "POST", mode: "no-cors", body: JSON.stringify({action: "delete", id: id})});
-location.reload();
-}
-</script>
-
