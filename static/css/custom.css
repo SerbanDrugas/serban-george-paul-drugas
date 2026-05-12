@@ -72,6 +72,7 @@ code, pre { background: transparent !important; color: inherit !important; paddi
     border: 1px solid #e0d8c3;
     box-sizing: border-box;
     min-height: 100vh !important; /* Coloane lungi cât ecranul */
+    text-align: justify;
 }
 
 /* 7. ZONA DE JOS (DESPRE MINE) ȘI FOOTER COMPACT */
