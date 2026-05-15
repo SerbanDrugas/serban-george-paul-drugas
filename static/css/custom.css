@@ -2,6 +2,7 @@
 h1, h2, h3, h4, h5, h6 { font-family: "Bookman Old Style", serif; font-weight: bold; }
 p, li, span, body { font-family: "Book Antiqua", serif; }
 code, pre { font-family: "Courier New", monospace; }
+.jst { text-align: justify !important; }
 
 /* 2. ANTET (HEADER) COMPACT */
 .cover, .vh-100, .vh-75, .vh-50 { min-height: 0 !important; height: auto !important; }
