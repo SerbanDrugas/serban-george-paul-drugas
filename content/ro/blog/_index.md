@@ -72,6 +72,8 @@ Trimite-mi un gând sau un comentariu. Îl voi citi pe email și, dacă dorești
 </div>
 <!-- SFÂRȘIT CALUP -->
 
+<h3>Alte postări</h3>
+<p><a href="https://serbandrugas.github.io/serban-george-paul-drugas/ro/blog/blog20260509">9 Mai. Profeţii ortodoxe despre războaiele mondiale şi comunism.</a><p>
 
 {{< /rawhtml >}}
 
