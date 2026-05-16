@@ -219,11 +219,11 @@ textarea { height: 100px; resize: none; overflow-y: scroll; white-space: pre-wra
 
 /* COLOANA DREAPTĂ - CALUPURI */
 .comment-block-red {
-    border: 2px solid red;
+    border: 4px solid red;
     margin-bottom: 5mm;
     padding: 5mm; /* Spațiul de jur împrejurul chenarului albastru */
     max-height: none;
-    min-height: 200mm;
+    min-height: 100mm;
     height: auto;
     overflow-y: visible; /* Elimină scroll-ul și afișează tot textul */
     position: relative;
@@ -231,7 +231,7 @@ textarea { height: 100px; resize: none; overflow-y: scroll; white-space: pre-wra
 }
 
 .comment-main-fixed {
-    border: 1px solid blue;
+    border: 2px solid blue;
     width: 100%;
     position: sticky;
     top: 0;
@@ -240,10 +240,10 @@ textarea { height: 100px; resize: none; overflow-y: scroll; white-space: pre-wra
 }
 
 .comment-reply {
-    border: 1px solid blue;
-    margin-left: 36mm; /* Indent 3x Comentează */
+    border: 2px solid blue;
+    margin-left: 12mm; /* Indent 3x Comentează */
     margin-top: 2mm;
-    width: calc(100% - 36mm);
+    width: calc(100% - 12mm);
 }
 
 /* CULORI TEXT CONFORM CERINȚELOR */
