@@ -40,7 +40,7 @@ Trimite-mi un gând sau un comentariu. Îl voi citi pe email și, dacă dorești
 
 {{< rawhtml >}}
 <!-- CALUP EXEMPLU -->
-<div class="comment-block-red" style="border:1px solid red; max-height:150mm; overflow-y:auto; padding:2mm; position:relative;">
+<div class="comment-block-red" style="border:1px solid red; max-height:300mm; overflow-y:auto; padding:2mm; position:relative;">
 
 <!-- Postarea Mea (Administrator) -->
 <div class="comment-main-fixed bg-admin" style="border:1px solid blue; width:100%; padding:5px; margin-bottom:2mm;">
