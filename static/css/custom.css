@@ -221,11 +221,11 @@ textarea { height: 100px; resize: none; overflow-y: scroll; white-space: pre-wra
 .comment-block-red {
     border: 2px solid red;
     margin-bottom: 5mm;
-    padding: 2mm; /* Spațiul de jur împrejurul chenarului albastru */
+    padding: 5mm; /* Spațiul de jur împrejurul chenarului albastru */
     max-height: none;
     min-height: 200mm;
     height: auto;
-    overflow-y: scroll;
+    overflow-y: visible; /* Elimină scroll-ul și afișează tot textul */
     position: relative;
     background: transparent;
 }
