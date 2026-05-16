@@ -222,7 +222,9 @@ textarea { height: 100px; resize: none; overflow-y: scroll; white-space: pre-wra
     border: 2px solid red;
     margin-bottom: 5mm;
     padding: 2mm; /* Spațiul de jur împrejurul chenarului albastru */
-    max-height: 80mm;
+    max-height: none;
+    min-height: 200mm;
+    height: auto;
     overflow-y: scroll;
     position: relative;
     background: transparent;
